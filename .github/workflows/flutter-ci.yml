@@ -84,19 +84,3 @@ jobs:
         run: |
           make build-android-prd
           make build-ios-prd
-
-      - name: Slack Notification
-        uses: homoluctus/slatify@master
-        if: always()
-        with:
-          type: ${{ job.status }}
-          job_name: '*Flutter Build*'
-          mention: 'here'
-          mention_if: 'failure'
-          channel: '#develop'
-          username: 'Github Actions'
-          icon_emoji: ':octocat:'
-          url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          commit: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-

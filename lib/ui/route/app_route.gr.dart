@@ -30,7 +30,7 @@ class AppRouter extends _i6.RootStackRouter {
     SignInRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
           routeData: routeData,
-          child: _i2.SignInPage(),
+          child: const _i2.SignInPage(),
           fullscreenDialog: true);
     },
     DetailRoute.name: (routeData) {
@@ -38,15 +38,16 @@ class AppRouter extends _i6.RootStackRouter {
       final args = routeData.argsAs<DetailRouteArgs>(
           orElse: () => DetailRouteArgs(article: queryParams.get('article')));
       return _i6.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i3.DetailPage(article: args.article));
+          routeData: routeData,
+          child: _i3.DetailPage(key: args.key, article: args.article));
     },
     NewsRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i4.NewsPage());
+          routeData: routeData, child: const _i4.NewsPage());
     },
     VideoRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i5.VideoPage());
+          routeData: routeData, child: const _i5.VideoPage());
     }
   };
 
@@ -79,17 +80,19 @@ class SignInRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for [_i3.DetailPage]
 class DetailRoute extends _i6.PageRouteInfo<DetailRouteArgs> {
-  DetailRoute({_i8.Article? article})
+  DetailRoute({_i7.Key? key, _i8.Article? article})
       : super(name,
             path: '/detail',
-            args: DetailRouteArgs(article: article),
+            args: DetailRouteArgs(key: key, article: article),
             rawQueryParams: {'article': article});
 
   static const String name = 'DetailRoute';
 }
 
 class DetailRouteArgs {
-  const DetailRouteArgs({this.article});
+  const DetailRouteArgs({this.key, this.article});
+
+  final _i7.Key? key;
 
   final _i8.Article? article;
 }

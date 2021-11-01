@@ -116,3 +116,6 @@ coverage/
 
 # fvm
 .fvm/flutter_sdk
+
+# google
+google-services.json
