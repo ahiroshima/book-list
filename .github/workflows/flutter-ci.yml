@@ -82,10 +82,10 @@ jobs:
           make unit-test
           make codecov
 
-      - name: copy google-service file
+      - name: Translate secrets to google-service file
         env:
           GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
-        run: echo $GOOGLE_SERVICE_JSON | base64 --decode --ignore-garbage > ~/android/app/google-services.json
+        run: echo $GOOGLE_SERVICE_JSON | base64 --decode --ignore-garbage > ./android/app/google-services.json
 
       - name: Build ipa and apk
         run: |
