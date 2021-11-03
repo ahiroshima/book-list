@@ -8,7 +8,8 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    # runs-on: macos-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 20
 
     steps:
@@ -86,7 +87,7 @@ jobs:
         env:
           GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
           GOOGLE_SERVICE_PLIST: ${{ secrets.GOOGLE_SERVICE_PLIST }}
-        run:
+        run: |
           echo $GOOGLE_SERVICE_JSON | base64 --decode > ./android/app/google-services.json
           echo $GOOGLE_SERVICE_PLIST | base64 --decode > ./ios/Runner/Resources/Firebase/Production/output.json
           plutil -convert xml1 ./ios/Runner/Resources/Firebase/Production/output.json -o ./ios/Runner/Resources/Firebase/Production/GoogleService-info.plist
@@ -95,4 +96,4 @@ jobs:
       - name: Build ipa and apk
         run: |
           make build-android-prd
-          make build-ios-prd
+          # make build-ios-prd
