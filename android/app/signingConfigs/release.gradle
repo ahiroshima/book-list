@@ -5,7 +5,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 signingConfigs {
     release {
-        storeFile rootProject.file(keystoreProperties['storeFile'])
+        storeFile file(keystoreProperties['storeFile'])
         storePassword keystoreProperties['storePassword']
         keyAlias keystoreProperties['keyAlias']
         keyPassword keystoreProperties['keyPassword']
