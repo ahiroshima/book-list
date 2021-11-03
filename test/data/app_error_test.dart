@@ -71,7 +71,7 @@ void main() {
     expect(
         AppError(
           DioError(
-              error: const SocketException('Failed host lookup: wasabeef.jp'),
+              error: const SocketException('Failed host lookup: '),
               type: DioErrorType.other,
               requestOptions: RequestOptions(path: '')),
         ).type,
