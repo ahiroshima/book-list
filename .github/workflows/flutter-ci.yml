@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    timeout-minutes: 20
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
@@ -79,6 +81,11 @@ jobs:
         run: |
           make unit-test
           make codecov
+
+      - name: copy google-service file
+        env:
+          GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
+        run: echo $GOOGLE_SERVICE_JSON | base64 --decode --ignore-garbage > ./app/google-services.json
 
       - name: Build ipa and apk
         run: |
