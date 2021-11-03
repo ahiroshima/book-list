@@ -1,10 +1,14 @@
 // TODO Must be re-created.
+def keystorePropertiesFile = rootProject.file("../key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 signingConfigs {
     release {
-        storeFile file("release.keystore")
-        storePassword "aabbccdd"
-        keyAlias "fab"
-        keyPassword "aabbccdd"
+        storeFile rootProject.file(keystoreProperties['storeFile'])
+        storePassword keystoreProperties['storePassword']
+        keyAlias keystoreProperties['keyAlias']
+        keyPassword keystoreProperties['keyPassword']
     }
 }
 

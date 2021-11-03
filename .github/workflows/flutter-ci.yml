@@ -93,6 +93,14 @@ jobs:
           # plutil -convert xml1 ./ios/Runner/Resources/Firebase/Production/output.json -o ./ios/Runner/Resources/Firebase/Production/GoogleService-info.plist
           # rm ./ios/Runner/Resources/Firebase/Production/output.json
 
+      - name: Create key.properties
+        run: |
+          echo ${{ secrets.ANDROID_KEY_STORE }} | base64 -d > ./android/app/signingConfigs/release.keystore
+          echo 'storeFile=release.keystore' > ./android/app/key.properties
+          echo 'storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}' >> ./android/app/key.properties
+          echo 'keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}' >> ./android/app/key.properties
+          echo 'keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}' >> ./android/app/key.properties
+
       - name: Build ipa and apk
         run: |
           make build-android-prd
