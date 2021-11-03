@@ -10,4 +10,4 @@ DISPLAY_NAME=FAB-dev
 FIREBASE_DIR=$PROJECT_DIR/$PROJECT_NAME/Resources/Firebase/Development
 
 // GOOGLE prefix key configs were copied from GoogleService-Info.plist
-GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.339920746703-140i3bhk3lqtpn2p2e7035btcp61p32i
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.576245132800-9uiicppsqd7leg0dc03i7nau2m26hleq
