@@ -85,7 +85,12 @@ jobs:
       - name: Translate secrets to google-service file
         env:
           GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
-        run: echo $GOOGLE_SERVICE_JSON | base64 --decode > ./android/app/google-services.json
+          GOOGLE_SERVICE_PLIST: ${{ secrets.GOOGLE_SERVICE_PLIST }}
+        run:
+          echo $GOOGLE_SERVICE_JSON | base64 --decode > ./android/app/google-services.json
+          echo $GOOGLE_SERVICE_PLIST | base64 --decode > ./ios/Runner/Resources/Firebase/Production/output.json
+          plutil -convert xml1 ./ios/Runner/Resources/Firebase/Production/output.json -o ./ios/Runner/Resources/Firebase/Production/GoogleService-info.plist
+          rm ./ios/Runner/Resources/Firebase/Production/output.json
 
       - name: Build ipa and apk
         run: |
