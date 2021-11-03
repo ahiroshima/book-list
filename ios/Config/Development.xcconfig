@@ -4,7 +4,7 @@ TRACK_WIDGET_CREATION=
 
 FLUTTER_FLAVOR=development
 FLUTTER_TARGET=$PROJECT_DIR/../lib/main.dart
-PRODUCT_BUNDLE_IDENTIFIER=jp.wasabeef.app.dev
+PRODUCT_BUNDLE_IDENTIFIER=io.github.ahiroshima.book-list
 DISPLAY_NAME=FAB-dev
 
 FIREBASE_DIR=$PROJECT_DIR/$PROJECT_NAME/Resources/Firebase/Development

@@ -35,7 +35,7 @@
 
 ## Localizations
 
-**If added some localizations (i.g. edited [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n))**
+**If added some localizations (i.g. edited [*.arb](https://github.com/ahiroshima/book-list/tree/main/lib/l10n))**
 
 - Use [Official Flutter localization package](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc)
 
@@ -44,7 +44,7 @@
 #### Project settings
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/pubspec.yaml#L7-L9) |
+| ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/ahiroshima/book-list/blob/main/pubspec.yaml#L7-L9) |
 | ✅ | Dart | Switching between Development and Production environment | [constants.dart](https://github.com/ahiroshima/blob/main/lib/foundation/constants.dart), [runConfigurations](https://github.com/ahiroshima/book-list/tree/main/.idea/runConfigurations), [Makefile](https://github.com/ahiroshima/book-list/blob/main/Makefile#L25-L41) |
 | ✅ | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/ahiroshima/book-lilst/blob/main/analysis_options.yaml) |
 | ✅ | Android | Kotlin version | [build.gradle](https://github.com/ahiroshima/book-list/blob/main/android/build.gradle#L2) |
