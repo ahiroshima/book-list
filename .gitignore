@@ -123,3 +123,4 @@ google-services.json
 
 # secrets
 *.keystore
+key.properties
