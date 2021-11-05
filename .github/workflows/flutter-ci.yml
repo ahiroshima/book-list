@@ -110,4 +110,4 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: android
-          path: ./build/app/outputs/flutter-apk/app-puroduction-release.apk
+          path: build/app/outputs/flutter-apk/app-production-release.apk
