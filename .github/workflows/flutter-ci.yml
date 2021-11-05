@@ -105,3 +105,9 @@ jobs:
         run: |
           make build-android-prd
           # make build-ios-prd
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: android
+          path: build/app/outputs/flutter-apk/app-puroduction-release.apk
