@@ -12,7 +12,6 @@ class FakeNewsDataSourceImpl implements NewsDataSource {
     String? language = 'en',
     required String apiKey,
   }) async {
-    // TODO: implement getNews
     return dummyNews;
   }
 }

@@ -15,7 +15,7 @@ class HomePage extends HookConsumerWidget {
     final l10n = useL10n();
     return AutoTabsScaffold(
       routes: const [
-        NewsRoute(),
+        BooksRoute(),
         VideoRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
@@ -29,7 +29,7 @@ class HomePage extends HookConsumerWidget {
             BottomNavigationBarItem(
               icon: Assets.svgs.news.svg(
                 width: 20,
-                color: tabsRouter.current.name == NewsRoute.name
+                color: tabsRouter.current.name == BooksRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
