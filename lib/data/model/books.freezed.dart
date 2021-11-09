@@ -20,11 +20,11 @@ class _$BooksTearOff {
   _Books call(
       {required String status,
       required int totalResults,
-      required List<Book> articles}) {
+      required List<Book> books}) {
     return _Books(
       status: status,
       totalResults: totalResults,
-      articles: articles,
+      books: books,
     );
   }
 }
@@ -36,7 +36,7 @@ const $Books = _$BooksTearOff();
 mixin _$Books {
   String get status => throw _privateConstructorUsedError;
   int get totalResults => throw _privateConstructorUsedError;
-  List<Book> get articles => throw _privateConstructorUsedError;
+  List<Book> get books => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BooksCopyWith<Books> get copyWith => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ mixin _$Books {
 abstract class $BooksCopyWith<$Res> {
   factory $BooksCopyWith(Books value, $Res Function(Books) then) =
       _$BooksCopyWithImpl<$Res>;
-  $Res call({String status, int totalResults, List<Book> articles});
+  $Res call({String status, int totalResults, List<Book> books});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$BooksCopyWithImpl<$Res> implements $BooksCopyWith<$Res> {
   $Res call({
     Object? status = freezed,
     Object? totalResults = freezed,
-    Object? articles = freezed,
+    Object? books = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
@@ -72,9 +72,9 @@ class _$BooksCopyWithImpl<$Res> implements $BooksCopyWith<$Res> {
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
               as int,
-      articles: articles == freezed
-          ? _value.articles
-          : articles // ignore: cast_nullable_to_non_nullable
+      books: books == freezed
+          ? _value.books
+          : books // ignore: cast_nullable_to_non_nullable
               as List<Book>,
     ));
   }
@@ -85,7 +85,7 @@ abstract class _$BooksCopyWith<$Res> implements $BooksCopyWith<$Res> {
   factory _$BooksCopyWith(_Books value, $Res Function(_Books) then) =
       __$BooksCopyWithImpl<$Res>;
   @override
-  $Res call({String status, int totalResults, List<Book> articles});
+  $Res call({String status, int totalResults, List<Book> books});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$BooksCopyWithImpl<$Res> extends _$BooksCopyWithImpl<$Res>
   $Res call({
     Object? status = freezed,
     Object? totalResults = freezed,
-    Object? articles = freezed,
+    Object? books = freezed,
   }) {
     return _then(_Books(
       status: status == freezed
@@ -112,9 +112,9 @@ class __$BooksCopyWithImpl<$Res> extends _$BooksCopyWithImpl<$Res>
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
               as int,
-      articles: articles == freezed
-          ? _value.articles
-          : articles // ignore: cast_nullable_to_non_nullable
+      books: books == freezed
+          ? _value.books
+          : books // ignore: cast_nullable_to_non_nullable
               as List<Book>,
     ));
   }
@@ -124,20 +124,18 @@ class __$BooksCopyWithImpl<$Res> extends _$BooksCopyWithImpl<$Res>
 
 class _$_Books implements _Books {
   _$_Books(
-      {required this.status,
-      required this.totalResults,
-      required this.articles});
+      {required this.status, required this.totalResults, required this.books});
 
   @override
   final String status;
   @override
   final int totalResults;
   @override
-  final List<Book> articles;
+  final List<Book> books;
 
   @override
   String toString() {
-    return 'Books(status: $status, totalResults: $totalResults, articles: $articles)';
+    return 'Books(status: $status, totalResults: $totalResults, books: $books)';
   }
 
   @override
@@ -149,9 +147,8 @@ class _$_Books implements _Books {
             (identical(other.totalResults, totalResults) ||
                 const DeepCollectionEquality()
                     .equals(other.totalResults, totalResults)) &&
-            (identical(other.articles, articles) ||
-                const DeepCollectionEquality()
-                    .equals(other.articles, articles)));
+            (identical(other.books, books) ||
+                const DeepCollectionEquality().equals(other.books, books)));
   }
 
   @override
@@ -159,7 +156,7 @@ class _$_Books implements _Books {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(totalResults) ^
-      const DeepCollectionEquality().hash(articles);
+      const DeepCollectionEquality().hash(books);
 
   @JsonKey(ignore: true)
   @override
@@ -171,14 +168,14 @@ abstract class _Books implements Books {
   factory _Books(
       {required String status,
       required int totalResults,
-      required List<Book> articles}) = _$_Books;
+      required List<Book> books}) = _$_Books;
 
   @override
   String get status => throw _privateConstructorUsedError;
   @override
   int get totalResults => throw _privateConstructorUsedError;
   @override
-  List<Book> get articles => throw _privateConstructorUsedError;
+  List<Book> get books => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BooksCopyWith<_Books> get copyWith => throw _privateConstructorUsedError;

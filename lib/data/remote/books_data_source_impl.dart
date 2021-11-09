@@ -20,10 +20,14 @@ class BooksDataSourceImpl implements BooksDataSource {
     final snapshot = await _firebaseFirestore.collection('books').get();
     List<Book>articles = snapshot.docs.map(
               (doc) => Book(
-                author: doc.get('author'),
-                publisher: doc.get('publisher'),
                 title: doc.get('title'),
+                author: doc.get('author'),
+                urlToLargeImage: doc.get('urlToLargeImage'),
+                urlToMediumImage: doc.get('urlToMediumImage'),
+                urlToDetailPage: doc.get('urlToDetailPage'),
+                publisher: doc.get('publisher'),
+                publicationDate: doc.get('publicationDate'),
                 price: doc.get('price'))).toList();
-    return Books(status: 'success', totalResults: articles.length, articles: articles);
+    return Books(status: 'success', totalResults: articles.length, books: articles);
   }
 }

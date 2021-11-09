@@ -8,6 +8,6 @@ abstract class Books with _$Books {
   factory Books({
     required String status,
     required int totalResults,
-    required List<Book> articles,
+    required List<Book> books,
   }) = _Books;
 }

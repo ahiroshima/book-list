@@ -5,9 +5,13 @@ part 'book.freezed.dart';
 @freezed
 abstract class Book with _$Book {
   factory Book({
-    String? author,
     String? title,
+    String? author,
+    String? urlToLargeImage,
+    String? urlToMediumImage,
+    String? urlToDetailPage,
     String? publisher,
-    int? price
+    String? publicationDate,
+    String? price
   }) = _Book;
 }

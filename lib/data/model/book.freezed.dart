@@ -17,11 +17,23 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$BookTearOff {
   const _$BookTearOff();
 
-  _Book call({String? author, String? title, String? publisher, int? price}) {
+  _Book call(
+      {String? title,
+      String? author,
+      String? urlToLargeImage,
+      String? urlToMediumImage,
+      String? urlToDetailPage,
+      String? publisher,
+      String? publicationDate,
+      String? price}) {
     return _Book(
-      author: author,
       title: title,
+      author: author,
+      urlToLargeImage: urlToLargeImage,
+      urlToMediumImage: urlToMediumImage,
+      urlToDetailPage: urlToDetailPage,
       publisher: publisher,
+      publicationDate: publicationDate,
       price: price,
     );
   }
@@ -32,10 +44,14 @@ const $Book = _$BookTearOff();
 
 /// @nodoc
 mixin _$Book {
-  String? get author => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
+  String? get urlToLargeImage => throw _privateConstructorUsedError;
+  String? get urlToMediumImage => throw _privateConstructorUsedError;
+  String? get urlToDetailPage => throw _privateConstructorUsedError;
   String? get publisher => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  String? get publicationDate => throw _privateConstructorUsedError;
+  String? get price => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BookCopyWith<Book> get copyWith => throw _privateConstructorUsedError;
@@ -45,7 +61,15 @@ mixin _$Book {
 abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res>;
-  $Res call({String? author, String? title, String? publisher, int? price});
+  $Res call(
+      {String? title,
+      String? author,
+      String? urlToLargeImage,
+      String? urlToMediumImage,
+      String? urlToDetailPage,
+      String? publisher,
+      String? publicationDate,
+      String? price});
 }
 
 /// @nodoc
@@ -58,28 +82,48 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? author = freezed,
     Object? title = freezed,
+    Object? author = freezed,
+    Object? urlToLargeImage = freezed,
+    Object? urlToMediumImage = freezed,
+    Object? urlToDetailPage = freezed,
     Object? publisher = freezed,
+    Object? publicationDate = freezed,
     Object? price = freezed,
   }) {
     return _then(_value.copyWith(
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      urlToLargeImage: urlToLargeImage == freezed
+          ? _value.urlToLargeImage
+          : urlToLargeImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      urlToMediumImage: urlToMediumImage == freezed
+          ? _value.urlToMediumImage
+          : urlToMediumImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      urlToDetailPage: urlToDetailPage == freezed
+          ? _value.urlToDetailPage
+          : urlToDetailPage // ignore: cast_nullable_to_non_nullable
               as String?,
       publisher: publisher == freezed
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
               as String?,
+      publicationDate: publicationDate == freezed
+          ? _value.publicationDate
+          : publicationDate // ignore: cast_nullable_to_non_nullable
+              as String?,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
     ));
   }
 }
@@ -89,7 +133,15 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
   factory _$BookCopyWith(_Book value, $Res Function(_Book) then) =
       __$BookCopyWithImpl<$Res>;
   @override
-  $Res call({String? author, String? title, String? publisher, int? price});
+  $Res call(
+      {String? title,
+      String? author,
+      String? urlToLargeImage,
+      String? urlToMediumImage,
+      String? urlToDetailPage,
+      String? publisher,
+      String? publicationDate,
+      String? price});
 }
 
 /// @nodoc
@@ -103,28 +155,48 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? author = freezed,
     Object? title = freezed,
+    Object? author = freezed,
+    Object? urlToLargeImage = freezed,
+    Object? urlToMediumImage = freezed,
+    Object? urlToDetailPage = freezed,
     Object? publisher = freezed,
+    Object? publicationDate = freezed,
     Object? price = freezed,
   }) {
     return _then(_Book(
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      urlToLargeImage: urlToLargeImage == freezed
+          ? _value.urlToLargeImage
+          : urlToLargeImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      urlToMediumImage: urlToMediumImage == freezed
+          ? _value.urlToMediumImage
+          : urlToMediumImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      urlToDetailPage: urlToDetailPage == freezed
+          ? _value.urlToDetailPage
+          : urlToDetailPage // ignore: cast_nullable_to_non_nullable
               as String?,
       publisher: publisher == freezed
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
               as String?,
+      publicationDate: publicationDate == freezed
+          ? _value.publicationDate
+          : publicationDate // ignore: cast_nullable_to_non_nullable
+              as String?,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
     ));
   }
 }
@@ -132,33 +204,61 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Book implements _Book {
-  _$_Book({this.author, this.title, this.publisher, this.price});
+  _$_Book(
+      {this.title,
+      this.author,
+      this.urlToLargeImage,
+      this.urlToMediumImage,
+      this.urlToDetailPage,
+      this.publisher,
+      this.publicationDate,
+      this.price});
 
-  @override
-  final String? author;
   @override
   final String? title;
   @override
+  final String? author;
+  @override
+  final String? urlToLargeImage;
+  @override
+  final String? urlToMediumImage;
+  @override
+  final String? urlToDetailPage;
+  @override
   final String? publisher;
   @override
-  final int? price;
+  final String? publicationDate;
+  @override
+  final String? price;
 
   @override
   String toString() {
-    return 'Book(author: $author, title: $title, publisher: $publisher, price: $price)';
+    return 'Book(title: $title, author: $author, urlToLargeImage: $urlToLargeImage, urlToMediumImage: $urlToMediumImage, urlToDetailPage: $urlToDetailPage, publisher: $publisher, publicationDate: $publicationDate, price: $price)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Book &&
-            (identical(other.author, author) ||
-                const DeepCollectionEquality().equals(other.author, author)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.author, author) ||
+                const DeepCollectionEquality().equals(other.author, author)) &&
+            (identical(other.urlToLargeImage, urlToLargeImage) ||
+                const DeepCollectionEquality()
+                    .equals(other.urlToLargeImage, urlToLargeImage)) &&
+            (identical(other.urlToMediumImage, urlToMediumImage) ||
+                const DeepCollectionEquality()
+                    .equals(other.urlToMediumImage, urlToMediumImage)) &&
+            (identical(other.urlToDetailPage, urlToDetailPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.urlToDetailPage, urlToDetailPage)) &&
             (identical(other.publisher, publisher) ||
                 const DeepCollectionEquality()
                     .equals(other.publisher, publisher)) &&
+            (identical(other.publicationDate, publicationDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.publicationDate, publicationDate)) &&
             (identical(other.price, price) ||
                 const DeepCollectionEquality().equals(other.price, price)));
   }
@@ -166,9 +266,13 @@ class _$_Book implements _Book {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(author) ^
       const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(author) ^
+      const DeepCollectionEquality().hash(urlToLargeImage) ^
+      const DeepCollectionEquality().hash(urlToMediumImage) ^
+      const DeepCollectionEquality().hash(urlToDetailPage) ^
       const DeepCollectionEquality().hash(publisher) ^
+      const DeepCollectionEquality().hash(publicationDate) ^
       const DeepCollectionEquality().hash(price);
 
   @JsonKey(ignore: true)
@@ -179,16 +283,31 @@ class _$_Book implements _Book {
 
 abstract class _Book implements Book {
   factory _Book(
-      {String? author, String? title, String? publisher, int? price}) = _$_Book;
+      {String? title,
+      String? author,
+      String? urlToLargeImage,
+      String? urlToMediumImage,
+      String? urlToDetailPage,
+      String? publisher,
+      String? publicationDate,
+      String? price}) = _$_Book;
 
-  @override
-  String? get author => throw _privateConstructorUsedError;
   @override
   String? get title => throw _privateConstructorUsedError;
   @override
+  String? get author => throw _privateConstructorUsedError;
+  @override
+  String? get urlToLargeImage => throw _privateConstructorUsedError;
+  @override
+  String? get urlToMediumImage => throw _privateConstructorUsedError;
+  @override
+  String? get urlToDetailPage => throw _privateConstructorUsedError;
+  @override
   String? get publisher => throw _privateConstructorUsedError;
   @override
-  int? get price => throw _privateConstructorUsedError;
+  String? get publicationDate => throw _privateConstructorUsedError;
+  @override
+  String? get price => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BookCopyWith<_Book> get copyWith => throw _privateConstructorUsedError;

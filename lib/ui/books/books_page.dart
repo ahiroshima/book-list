@@ -29,16 +29,16 @@ class BooksPage extends HookConsumerWidget {
       child: snapshot.isWaiting || books == null
           ? const SizedBox()
           : books.when(success: (data) {
-              if (data.articles.isEmpty) {
+              if (data.books.isEmpty) {
                 return Center(child: Text(l10n.noResult));
               }
               return RefreshIndicator(
                 onRefresh: () async => homeViewModel.fetchBooks(),
-                child: ListView.builder(
-                  itemCount: data.articles.length,
-                  itemBuilder: (_, index) {
-                    return BookItem(book: data.articles[index]);
-                  },
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  children: List.generate(data.books.length, (index) {
+                    return BookItem(book: data.books[index]);
+                  }),
                 ),
               );
             }, failure: (e) {

@@ -55,7 +55,7 @@ class ArticleItem extends HookConsumerWidget {
             ),
           ],
         ),
-        onTap: () => router.push(DetailRoute(article: article)),
+        //onTap: () => router.push(DetailRoute(article: article)),
       ),
     );
   }
