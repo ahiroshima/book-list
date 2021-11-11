@@ -16,7 +16,7 @@ class HomePage extends HookConsumerWidget {
     return AutoTabsScaffold(
       routes: const [
         BooksRoute(),
-        VideoRoute(),
+        ScanRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
@@ -38,7 +38,7 @@ class HomePage extends HookConsumerWidget {
             BottomNavigationBarItem(
               icon: Assets.svgs.video.svg(
                 width: 20,
-                color: tabsRouter.current.name == VideoRoute.name
+                color: tabsRouter.current.name == ScanRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),

@@ -12,8 +12,8 @@ import 'package:app/data/model/book.dart' as _i8;
 import 'package:app/ui/books/books_page.dart' as _i4;
 import 'package:app/ui/detail/detail_page.dart' as _i3;
 import 'package:app/ui/home/home_page.dart' as _i1;
+import 'package:app/ui/scan/scan_page.dart' as _i5;
 import 'package:app/ui/signIn/sign_in_page.dart' as _i2;
-import 'package:app/ui/video/video_page.dart' as _i5;
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
@@ -43,9 +43,9 @@ class AppRouter extends _i6.RootStackRouter {
       return _i6.AdaptivePage<dynamic>(
           routeData: routeData, child: const _i4.BooksPage());
     },
-    VideoRoute.name: (routeData) {
+    ScanRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i5.VideoPage());
+          routeData: routeData, child: const _i5.ScanPage());
     }
   };
 
@@ -54,8 +54,8 @@ class AppRouter extends _i6.RootStackRouter {
         _i6.RouteConfig(HomeRoute.name, path: '/', children: [
           _i6.RouteConfig(BooksRoute.name,
               path: 'books', parent: HomeRoute.name),
-          _i6.RouteConfig(VideoRoute.name,
-              path: 'video', parent: HomeRoute.name)
+          _i6.RouteConfig(ScanRoute.name,
+              path: 'book_scan', parent: HomeRoute.name)
         ]),
         _i6.RouteConfig(SignInRoute.name, path: '/signIn'),
         _i6.RouteConfig(DetailRoute.name, path: '/detail')
@@ -101,9 +101,9 @@ class BooksRoute extends _i6.PageRouteInfo<void> {
   static const String name = 'BooksRoute';
 }
 
-/// generated route for [_i5.VideoPage]
-class VideoRoute extends _i6.PageRouteInfo<void> {
-  const VideoRoute() : super(name, path: 'video');
+/// generated route for [_i5.ScanPage]
+class ScanRoute extends _i6.PageRouteInfo<void> {
+  const ScanRoute() : super(name, path: 'book_scan');
 
-  static const String name = 'VideoRoute';
+  static const String name = 'ScanRoute';
 }

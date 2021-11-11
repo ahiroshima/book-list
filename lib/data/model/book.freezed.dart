@@ -13,6 +13,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Book _$BookFromJson(Map<String, dynamic> json) {
+  return _Book.fromJson(json);
+}
+
 /// @nodoc
 class _$BookTearOff {
   const _$BookTearOff();
@@ -37,6 +41,10 @@ class _$BookTearOff {
       price: price,
     );
   }
+
+  Book fromJson(Map<String, Object> json) {
+    return Book.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -53,6 +61,7 @@ mixin _$Book {
   String? get publicationDate => throw _privateConstructorUsedError;
   String? get price => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BookCopyWith<Book> get copyWith => throw _privateConstructorUsedError;
 }
@@ -202,7 +211,7 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Book implements _Book {
   _$_Book(
       {this.title,
@@ -213,6 +222,8 @@ class _$_Book implements _Book {
       this.publisher,
       this.publicationDate,
       this.price});
+
+  factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
   @override
   final String? title;
@@ -279,6 +290,11 @@ class _$_Book implements _Book {
   @override
   _$BookCopyWith<_Book> get copyWith =>
       __$BookCopyWithImpl<_Book>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BookToJson(this);
+  }
 }
 
 abstract class _Book implements Book {
@@ -291,6 +307,8 @@ abstract class _Book implements Book {
       String? publisher,
       String? publicationDate,
       String? price}) = _$_Book;
+
+  factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
   @override
   String? get title => throw _privateConstructorUsedError;

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'book.freezed.dart';
+part 'book.g.dart';
 
 @freezed
 abstract class Book with _$Book {
@@ -14,4 +15,6 @@ abstract class Book with _$Book {
     String? publicationDate,
     String? price
   }) = _Book;
+
+  factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 }

@@ -13,6 +13,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Books _$BooksFromJson(Map<String, dynamic> json) {
+  return _Books.fromJson(json);
+}
+
 /// @nodoc
 class _$BooksTearOff {
   const _$BooksTearOff();
@@ -27,6 +31,10 @@ class _$BooksTearOff {
       books: books,
     );
   }
+
+  Books fromJson(Map<String, Object> json) {
+    return Books.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -38,6 +46,7 @@ mixin _$Books {
   int get totalResults => throw _privateConstructorUsedError;
   List<Book> get books => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BooksCopyWith<Books> get copyWith => throw _privateConstructorUsedError;
 }
@@ -121,10 +130,13 @@ class __$BooksCopyWithImpl<$Res> extends _$BooksCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Books implements _Books {
   _$_Books(
       {required this.status, required this.totalResults, required this.books});
+
+  factory _$_Books.fromJson(Map<String, dynamic> json) =>
+      _$$_BooksFromJson(json);
 
   @override
   final String status;
@@ -162,6 +174,11 @@ class _$_Books implements _Books {
   @override
   _$BooksCopyWith<_Books> get copyWith =>
       __$BooksCopyWithImpl<_Books>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BooksToJson(this);
+  }
 }
 
 abstract class _Books implements Books {
@@ -169,6 +186,8 @@ abstract class _Books implements Books {
       {required String status,
       required int totalResults,
       required List<Book> books}) = _$_Books;
+
+  factory _Books.fromJson(Map<String, dynamic> json) = _$_Books.fromJson;
 
   @override
   String get status => throw _privateConstructorUsedError;

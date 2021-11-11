@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  barcode_scan2:
+    dependency: "direct main"
+    description:
+      name: barcode_scan2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -84,7 +91,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.5"
   build_runner_core:
     dependency: transitive
     description:
@@ -390,7 +397,7 @@ packages:
       name: flutter_hooks
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.18.0"
+    version: "0.18.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -409,7 +416,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.11"
+    version: "1.0.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -503,7 +510,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.11"
+    version: "1.0.0"
   html:
     dependency: transitive
     description:
@@ -728,6 +735,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   pub_semver:
     dependency: transitive
     description:
@@ -769,7 +783,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.10"
+    version: "1.0.0"
   shelf:
     dependency: transitive
     description:
