@@ -86,6 +86,8 @@ ios/fastlane/report.xml
 **/ios/Flutter/flutter_assets/
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/Flutter/Flutter.podspec
+# API_KEYを環境変数から取得する為にEnvironmentVariables.xcconfigを追加
+**/ios/Flutter/EnvironmentVariables.xcconfig
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 **/ios/Runner/GoogleService-Info.plist
