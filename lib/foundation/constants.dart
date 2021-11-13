@@ -8,7 +8,6 @@ enum Flavor { development, production }
 class Constants {
   const Constants._({
     required this.endpoint,
-    required this.apiKey,
   });
 
   factory Constants.of() {
@@ -29,19 +28,16 @@ class Constants {
   factory Constants._dev() {
     return const Constants._(
       endpoint: 'https://www.googleapis.com',
-      apiKey: '98c8df982b8b4da8b86cd70e851fc521',
     );
   }
 
   factory Constants._prd() {
     return const Constants._(
       endpoint: 'https://www.googleapis.com',
-      apiKey: '4bc454db94464956aea4cbb01f4bf9f4',
     );
   }
 
   static late final Constants instance = Constants.of();
 
   final String endpoint;
-  final String apiKey;
 }
