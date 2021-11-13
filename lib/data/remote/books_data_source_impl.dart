@@ -39,7 +39,7 @@ class BooksDataSourceImpl implements BooksDataSource {
          price: doc.get('price'),
         )
       ).toList();
-    };
+    }
     return Books(status: 'success', totalResults: books.length, books: books);
   }
 }

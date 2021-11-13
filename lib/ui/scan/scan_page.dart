@@ -1,11 +1,7 @@
-import 'package:app/foundation/extension/async_snapshot.dart';
 import 'package:app/ui/component/image/image.dart';
-import 'package:app/ui/component/loading/container_with_loading.dart';
 import 'package:app/ui/hook/use_l10n.dart';
-import 'package:app/ui/loading_state_view_model.dart';
 import 'package:app/ui/scan/scan_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ScanPage extends HookConsumerWidget {
@@ -15,23 +11,14 @@ class ScanPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useL10n();
     final homeViewModel = ref.read(scanViewModelProvider);
-    final scanResult = ref.watch(scanViewModelProvider.select((value) => value.scanResult));
     final bookInfo = ref.watch(scanViewModelProvider.select((value) => value.bookInfo));
 
-    final BorderRadius borderRadiusTop = const BorderRadius.only(
+    const BorderRadius borderRadiusTop = BorderRadius.only(
       topRight: Radius.circular(8),
       topLeft: Radius.circular(8),
       bottomLeft: Radius.circular(8),
       bottomRight: Radius.circular(8),
     );
-
-//    final snapshot = useFuture(
-//      useMemoized(() {
-//        return ref
-//            .read(loadingStateProvider)
-//            .whileLoading(homeViewModel.searchBook);
-//      }, [bookInfo?.toString()]),
-//    );
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +33,7 @@ class ScanPage extends HookConsumerWidget {
       ),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             child: TextField(
               decoration: const InputDecoration(

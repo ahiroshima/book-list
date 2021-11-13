@@ -1,11 +1,7 @@
-import 'dart:math';
-
 import 'package:app/data/model/book.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/remote/search_book_data_source.dart';
 import 'package:app/data/repository/search_book_repository.dart';
-import 'package:app/foundation/constants.dart';
-import 'package:app/foundation/extension/date_time.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final searchBookRepositoryProvider = Provider((ref) => SearchBookRepositoryImpl(ref.read));
@@ -22,7 +18,7 @@ class SearchBookRepositoryImpl implements SearchBookRepository {
     return Result.guardFuture(
       () async => await _dataSource.getBook(
         query: 'isbn:' + isbn,
-        apiKey: String.fromEnvironment('API_KEY'),
+        apiKey: const String.fromEnvironment('API_KEY'),
       ),
     );
   }

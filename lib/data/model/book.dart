@@ -40,10 +40,10 @@ class BookConverter implements JsonConverter<Book, Map<String, dynamic>> {
         //identifiers: json['items'][0]['volumeInfo']['industryIdentifiers'],
         isbn: json['items'][0]['volumeInfo']['industryIdentifiers'][1]['identifier'] as String,
         title: json['items'][0]['volumeInfo']['title'] as String,
-        subtitle: json['items'][0]['volumeInfo']['subtitle'] ?? '' as String,
+        subtitle: json['items'][0]['volumeInfo']['subtitle'] ?? '',
         authors: json['items'][0]['volumeInfo']['authors'] ?? [],
         publishedDate: json['items'][0]['volumeInfo']['publishedDate'] as String,
-        description: json['items'][0]['volumeInfo']['description'] ?? '' as String,
+        description: json['items'][0]['volumeInfo']['description'] ?? '',
         pageCount: json['items'][0]['volumeInfo']['pageCount'] as int,
         categories: json['items'][0]['volumeInfo']['categories'] ?? [],
         smallThumbnail: json['items'][0]['volumeInfo']['imageLinks'] != null
@@ -55,7 +55,7 @@ class BookConverter implements JsonConverter<Book, Map<String, dynamic>> {
       );
     }else {
       return _$_Book();
-    };
+    }
   }
 
   @override
