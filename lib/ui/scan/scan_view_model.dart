@@ -17,23 +17,32 @@ class ScanViewModel extends ChangeNotifier {
 
   late final SearchBookRepository _repository = _reader(searchBookRepositoryProvider);
 
-  Result<Book>? _scannedBook;
   ScanResult? _result;
-
-  Result<Book>? get scannedBook => _scannedBook;
   ScanResult? get scanResult => _result;
 
-  Future<void> searchBook() {
+  Result<Book>? _bookInfo;
+  Result<Book>? get bookInfo => _bookInfo;
+
+
+  Future<void> searchBook(String barcode) {
+    final isbn = barcode;
     return _repository
-        .getBook()
-        .then((value) => _scannedBook = value)
-        .whenComplete(notifyListeners);
+      .getBook(isbn)
+      .then((value) => _bookInfo = value)
+      .whenComplete(notifyListeners);
   }
 
-  Future scanBarcode() async {
+  Future<void> scanBarcode() async {
     try {
       final result = await BarcodeScanner.scan();
       _result = result;
+      if(result.rawContent.toString().startsWith('978') ||
+          result.rawContent.toString().startsWith('979')) {
+        _repository
+          .getBook(result.rawContent)
+          .then((value) => _bookInfo = value)
+          .whenComplete(notifyListeners);
+      }
     } on PlatformException catch (e) {
       _result = ScanResult(
         type: ResultType.Error,
@@ -42,5 +51,6 @@ class ScanViewModel extends ChangeNotifier {
           ? 'No camera permission!'
           : 'Unknown error: $e');
     }
+    //notifyListeners();
   }
 }

@@ -52,9 +52,9 @@ class BookItem extends HookConsumerWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(4),
-                        child: ClipRRect(
+                      child: ClipRRect(
                         borderRadius: borderRadiusTop,
-                        child: networkImage(book.urlToMediumImage, fit: BoxFit.fitHeight),
+                        child: networkImage(book.smallThumbnail, fit: BoxFit.fitHeight),
                       ),
                     ),
                     Expanded(
@@ -64,7 +64,7 @@ class BookItem extends HookConsumerWidget {
                           Padding(
                             padding: const EdgeInsets.all(4),
                             child: Text(
-                              book.author ?? l10n.noTitle,
+                              book.authors?.first ?? l10n.noTitle,
                               style: theme.textTheme.h20.dense(),
                             ),
                           ),

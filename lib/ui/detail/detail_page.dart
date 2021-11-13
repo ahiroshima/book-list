@@ -20,7 +20,7 @@ class DetailPage extends HookWidget {
         child: Center(
           child: Hero(
             tag: book!,
-            child: networkImage(book?.urlToLargeImage),
+            child: networkImage(book?.thumbnail),
           ),
         ),
         onTap: router.pop,

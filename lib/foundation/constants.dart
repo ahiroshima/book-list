@@ -28,14 +28,14 @@ class Constants {
 
   factory Constants._dev() {
     return const Constants._(
-      endpoint: 'https://newsapi.org',
+      endpoint: 'https://www.googleapis.com',
       apiKey: '98c8df982b8b4da8b86cd70e851fc521',
     );
   }
 
   factory Constants._prd() {
     return const Constants._(
-      endpoint: 'https://newsapi.org',
+      endpoint: 'https://www.googleapis.com',
       apiKey: '4bc454db94464956aea4cbb01f4bf9f4',
     );
   }

@@ -12,14 +12,11 @@ final searchBookDataSourceProvider = Provider((ref) => SearchBookDataSource(ref.
 abstract class SearchBookDataSource {
   factory SearchBookDataSource(Reader reader) => _SearchBookDataSource(reader(dioProvider));
 
-  @GET('/v2/everything')
+  @GET('/books/v1/volumes')
   Future<Book> getBook(
-    /*{
+    {
     @Query("q") required String query,
-    @Query("from") required String from,
-    @Query("sortBy") String? sortBy = 'publishedAt',
-    @Query("language") String? language = 'en',
-    @Query("apiKey") required String apiKey,
-  }*/
+    @Query("key") required String apiKey,
+  }
   );
 }

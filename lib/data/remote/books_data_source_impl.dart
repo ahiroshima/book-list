@@ -18,16 +18,28 @@ class BooksDataSourceImpl implements BooksDataSource {
   @override
   Future<Books> getBooks() async {
     final snapshot = await _firebaseFirestore.collection('books').get();
-    List<Book>articles = snapshot.docs.map(
-              (doc) => Book(
-                title: doc.get('title'),
-                author: doc.get('author'),
-                urlToLargeImage: doc.get('urlToLargeImage'),
-                urlToMediumImage: doc.get('urlToMediumImage'),
-                urlToDetailPage: doc.get('urlToDetailPage'),
-                publisher: doc.get('publisher'),
-                publicationDate: doc.get('publicationDate'),
-                price: doc.get('price'))).toList();
-    return Books(status: 'success', totalResults: articles.length, books: articles);
+
+    List<Book> books = [];
+
+    if(snapshot.size > 0) {
+      books = snapshot.docs.map( (doc) =>
+        Book(
+         isbn: doc.get('isbn'),
+         title: doc.get('title'),
+         subtitle: doc.get('subtitle'),
+         authors: doc.get('authors'),
+         publishedDate: doc.get('publishedDate'),
+         description: doc.get('description'),
+         pageCount: doc.get('pageCount') ?? 0,
+         categories: doc.get('categories'),
+         smallThumbnail: doc.get('smallThumbnail'),
+         thumbnail: doc.get('thumbnail'),
+         urlToDetailPage: doc.get('urlToDetailPage'),
+         publisher: doc.get('publisher'),
+         price: doc.get('price'),
+        )
+      ).toList();
+    };
+    return Books(status: 'success', totalResults: books.length, books: books);
   }
 }

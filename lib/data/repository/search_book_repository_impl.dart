@@ -18,16 +18,11 @@ class SearchBookRepositoryImpl implements SearchBookRepository {
   late final SearchBookDataSource _dataSource = _reader(searchBookDataSourceProvider);
 
   @override
-  Future<Result<Book>> getBook() {
+  Future<Result<Book>> getBook(isbn) {
     return Result.guardFuture(
       () async => await _dataSource.getBook(
-        /*query: ['anim', 'manga'][Random().nextInt(2)],
-        // For checking reload.
-        from: DateTime.now()
-            .subtract(const Duration(days: 28))
-            .toLocal()
-            .formatYYYYMMdd(),
-        apiKey: Constants.instance.apiKey, */
+        query: 'isbn:' + isbn,
+        apiKey: String.fromEnvironment('API_KEY'),
       ),
     );
   }
