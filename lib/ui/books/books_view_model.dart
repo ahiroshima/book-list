@@ -15,9 +15,7 @@ class BooksViewModel extends ChangeNotifier {
 
   late final BooksRepository _repository = _reader(booksRepositoryProvider);
 
-  // Result use case No.1
   Result<Books>? _books;
-
   Result<Books>? get books => _books;
 
   Future<void> fetchBooks() {

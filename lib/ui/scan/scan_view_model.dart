@@ -2,6 +2,8 @@ import 'package:app/data/model/book.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/repository/search_book_repository.dart';
 import 'package:app/data/repository/search_book_repository_impl.dart';
+import 'package:app/data/repository/books_repository.dart';
+import 'package:app/data/repository/books_repository_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,6 +18,7 @@ class ScanViewModel extends ChangeNotifier {
   final Reader _reader;
 
   late final SearchBookRepository _repository = _reader(searchBookRepositoryProvider);
+  late final BooksRepository _booksRepository = _reader(booksRepositoryProvider);
 
   ScanResult? _result;
   ScanResult? get scanResult => _result;
@@ -29,6 +32,12 @@ class ScanViewModel extends ChangeNotifier {
     return _repository
       .getBook(isbn)
       .then((value) => _bookInfo = value)
+      .whenComplete(notifyListeners);
+  }
+
+  Future<void> addBook() {
+    return _booksRepository
+      .addBook(_bookInfo!.dataOrThrow)
       .whenComplete(notifyListeners);
   }
 

@@ -54,7 +54,7 @@ class BookItem extends HookConsumerWidget {
                       padding: const EdgeInsets.all(4),
                       child: ClipRRect(
                         borderRadius: borderRadiusTop,
-                        child: networkImage(book.smallThumbnail, fit: BoxFit.fitHeight),
+                        child: networkImage(book.smallThumbnail, fit: BoxFit.contain),
                       ),
                     ),
                     Expanded(
@@ -64,21 +64,23 @@ class BookItem extends HookConsumerWidget {
                           Padding(
                             padding: const EdgeInsets.all(4),
                             child: Text(
-                              book.authors?.first ?? l10n.noTitle,
+                              book.authors!.isNotEmpty
+                                ? book.authors!.first
+                                : '',
                               style: theme.textTheme.h20.dense(),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(2),
                             child: Text(
-                              book.publisher ?? l10n.noTitle,
+                              book.publisher ?? '',
                               style: theme.textTheme.h20.dense(),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(2),
                             child: Text(
-                              book.price ?? l10n.noTitle,
+                              book.price ?? '',
                               style: theme.textTheme.h20.dense(),
                             ),
                           ),

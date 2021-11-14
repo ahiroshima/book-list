@@ -19,4 +19,10 @@ class BooksRepositoryImpl implements BooksRepository {
     return Result.guardFuture(
       () async => _dataSource.getBooks());
   }
+
+  @override
+  Future<Result<void>> addBook(book) {
+    return Result.guardFuture(
+      () async => _dataSource.addBook(book));
+  }
 }

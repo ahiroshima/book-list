@@ -1,8 +1,10 @@
 import 'package:app/data/model/book.dart';
 import 'package:app/data/model/books.dart';
+import 'package:app/data/provider/firebase_auth_provider.dart';
 import 'package:app/data/provider/firebase_firestore_provider.dart';
 import 'package:app/data/remote/books_data_source.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' as firebase;
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final booksDataSourceProvider = Provider((ref) => BooksDataSourceImpl(ref.read));
@@ -15,9 +17,25 @@ class BooksDataSourceImpl implements BooksDataSource {
   late final firebase.FirebaseFirestore _firebaseFirestore =
       _reader(firebaseFirestoreProvider);
 
+  late final auth.FirebaseAuth _firebaseAuth =
+      _reader(firebaseAuthProvider);
+
+  late final String _uid = _firebaseAuth.currentUser!.uid;
+
+  @override
+  Future<void> addBook(book) async {
+    _firebaseFirestore.collection('book_list')
+      .doc(_uid)
+      .collection('books')
+      .add(book.toJson());
+  }
+
   @override
   Future<Books> getBooks() async {
-    final snapshot = await _firebaseFirestore.collection('books').get();
+    final snapshot = await _firebaseFirestore.collection('book_list')
+      .doc(_uid)
+      .collection('books')
+      .get();
 
     List<Book> books = [];
 

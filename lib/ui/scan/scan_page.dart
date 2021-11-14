@@ -61,6 +61,11 @@ class ScanPage extends HookConsumerWidget {
                         child: networkImage(data.smallThumbnail, fit: BoxFit.fitHeight),
                       ),
                     ),
+                    FloatingActionButton(
+                      onPressed: homeViewModel.addBook,
+                      backgroundColor: Colors.blue,
+                      child: const Icon(Icons.add),
+                    )
                   ],
                 ),
               );

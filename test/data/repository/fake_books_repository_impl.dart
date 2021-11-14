@@ -9,4 +9,9 @@ class FakeBooksRepositoryImpl implements BooksRepositoryImpl {
   Future<Result<Books>> getBooks() async {
     return Result.success(data: dummyBooks);
   }
+
+  @override
+  Future<Result<void>> addBook(book) async{
+    throw 0;
+  }
 }
