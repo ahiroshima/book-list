@@ -1,7 +1,7 @@
 import 'package:app/data/local/app_user.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/remote/auth_data_source.dart';
-import 'package:app/data/remote/auth_data_source_impl.dart';
+import 'package:app/data/remote/auth_data_source_impl_for_anonymous.dart';
 import 'package:app/data/repository/auth_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
