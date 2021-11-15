@@ -1,6 +1,8 @@
 import 'package:app/ui/component/image/image.dart';
-import 'package:app/ui/hook/use_l10n.dart';
+import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/scan/scan_view_model.dart';
+import 'package:app/ui/hook/use_l10n.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -10,7 +12,8 @@ class ScanPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useL10n();
-    final homeViewModel = ref.read(scanViewModelProvider);
+    final scanViewModel = ref.read(scanViewModelProvider);
+    final homeViewModel = ref.read(homeViewModelProvider);
     final bookInfo = ref.watch(scanViewModelProvider.select((value) => value.bookInfo));
 
     const BorderRadius borderRadiusTop = BorderRadius.only(
@@ -22,14 +25,18 @@ class ScanPage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ISBNスキャン'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.camera),
-            tooltip: 'Scan',
-            onPressed: homeViewModel.scanBarcode,
+        leadingWidth: 85,
+        leading: TextButton(
+          child: Text(
+            'キャンセル',
+            style: TextStyle(
+              color: Colors.white,  //文字の色を白にする
+              fontWeight: FontWeight.bold,  //文字を太字する
+              fontSize: 12.0,  //文字のサイズを調整する
+            ),
           ),
-        ],
+          onPressed: () => context.router.navigateNamed('books')
+        ),
       ),
       body: Column(
         children: [
@@ -40,7 +47,7 @@ class ScanPage extends HookConsumerWidget {
                 border: InputBorder.none,
                 hintText: 'Enter ISBN Code',
               ),
-              onSubmitted: homeViewModel.searchBook,
+              onSubmitted: scanViewModel.searchBook,
             ),
           ),
 
@@ -62,7 +69,7 @@ class ScanPage extends HookConsumerWidget {
                       ),
                     ),
                     FloatingActionButton(
-                      onPressed: homeViewModel.addBook,
+                      onPressed: scanViewModel.addBook,
                       backgroundColor: Colors.blue,
                       child: const Icon(Icons.add),
                     )

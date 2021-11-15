@@ -38,7 +38,7 @@ dependencies:
   freezed_annotation: ^0.15.0
 
   # For Navigation
-  auto_route: ^3.0.4
+  auto_route: ^3.1.2
 
   # For DateTime
   intl: ^0.17.0
