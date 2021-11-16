@@ -1,8 +1,8 @@
 import 'package:app/app.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/ui/component/loading/loading.dart';
-import 'package:app/ui/news/news_page.dart';
-import 'package:app/ui/news/news_view_model.dart';
+import 'package:app/ui/books/books_page.dart';
+import 'package:app/ui/books/books_view_model.dart';
 import 'package:app/ui/route/app_route.gr.dart';
 import 'package:app/ui/user_view_model.dart';
 import 'package:flutter/material.dart';
@@ -12,17 +12,17 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import '../data/dummy/dummy_news.dart';
+import '../data/dummy/dummy_books.dart';
 
-class MockNewsViewModel extends Mock implements NewsViewModel {}
+class MockBooksViewModel extends Mock implements BooksViewModel {}
 
 class MockUserViewModel extends Mock implements UserViewModel {}
 
 void main() {
-  final mockNewsViewModel = MockNewsViewModel();
-  when(mockNewsViewModel.fetchNews).thenAnswer((_) => Future.value());
-  when(() => mockNewsViewModel.news)
-      .thenReturn(Result.success(data: dummyNews));
+  final mockBooksViewModel = MockBooksViewModel();
+  when(mockBooksViewModel.fetchBooks).thenAnswer((_) => Future.value());
+  when(() => mockBooksViewModel.books)
+      .thenReturn(Result.success(data: dummyBooks));
 
   final mockUserViewModel = MockUserViewModel();
   when(mockUserViewModel.signIn).thenAnswer((_) => Future.value());
@@ -32,7 +32,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          newsViewModelProvider.overrideWithValue(mockNewsViewModel),
+          booksViewModelProvider.overrideWithValue(mockBooksViewModel),
           userViewModelProvider.overrideWithValue(mockUserViewModel),
         ],
         child: const App(),
@@ -46,7 +46,7 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            newsViewModelProvider.overrideWithValue(mockNewsViewModel),
+            booksViewModelProvider.overrideWithValue(mockBooksViewModel),
             userViewModelProvider.overrideWithValue(mockUserViewModel),
           ],
           child: MaterialApp.router(
@@ -60,7 +60,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(appRouter.current.name == HomeRoute.name, true);
-      expect(find.byType(NewsPage), findsOneWidget);
+      expect(find.byType(BooksPage), findsOneWidget);
     });
   });
 

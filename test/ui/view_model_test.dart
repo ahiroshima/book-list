@@ -1,63 +1,35 @@
 import 'package:app/data/model/result.dart';
-import 'package:app/data/remote/app_dio.dart';
-import 'package:app/data/remote/news_data_source.dart';
-import 'package:app/data/repository/news_repository_impl.dart';
-import 'package:app/foundation/constants.dart';
-import 'package:app/ui/news/news_view_model.dart';
+import 'package:app/data/repository/books_repository_impl.dart';
+import 'package:app/ui/books/books_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../data/dummy/dummy_news.dart';
-import '../data/remote/fake_app_dio.dart';
-import '../data/remote/fake_news_data_source_impl.dart';
-import '../data/repository/fake_news_repository_impl.dart';
+import '../data/dummy/dummy_books.dart';
+import '../data/repository/fake_books_repository_impl.dart';
 
-class MockNewsRepositoryImpl extends Mock implements NewsRepositoryImpl {}
+class MockBooksRepositoryImpl extends Mock implements BooksRepositoryImpl {}
 
 void main() {
   test('HomeViewModel Test', () async {
     final container = ProviderContainer(
       overrides: [
-        newsRepositoryProvider.overrideWithValue(FakeNewsRepositoryImpl())
+        booksRepositoryProvider.overrideWithValue(FakeBooksRepositoryImpl())
       ],
     );
-    final viewModel = container.read(newsViewModelProvider);
+    final viewModel = container.read(booksViewModelProvider);
     await expectLater(
-        viewModel.fetchNews(), completion(Result.success(data: dummyNews)));
+        viewModel.fetchBooks(), completion(Result.success(data: dummyBooks)));
   });
 
-  test('NewsRepository Test', () async {
+  test('BooksRepository Test', () async {
     final container = ProviderContainer(
       overrides: [
-        newsDataSourceProvider.overrideWithValue(FakeNewsDataSourceImpl())
+        booksRepositoryProvider.overrideWithValue(FakeBooksRepositoryImpl())
       ],
     );
-    final newsRepository = container.read(newsRepositoryProvider);
+    final booksRepository = container.read(booksRepositoryProvider);
     await expectLater(
-        newsRepository.getNews(), completion(Result.success(data: dummyNews)));
-  });
-
-  test('NewsDataSource Test', () async {
-    final container = ProviderContainer(
-      overrides: [dioProvider.overrideWithValue(FakeAppDio())],
-    );
-    final dataSource = container.read(newsDataSourceProvider);
-    await expectLater(
-        dataSource.getNews(
-          apiKey: 'apikey',
-          from: 'from',
-          query: 'query',
-        ),
-        completion(isNotNull));
-  });
-
-  test('AppDio options Test', () async {
-    final realDio = AppDio.getInstance();
-    expect(realDio.options.baseUrl, Constants.of().endpoint);
-    expect(realDio.options.contentType, 'application/json');
-    expect(realDio.options.connectTimeout, 30000);
-    expect(realDio.options.sendTimeout, 30000);
-    expect(realDio.options.receiveTimeout, 30000);
+        booksRepository.getBooks(), completion(Result.success(data: dummyBooks)));
   });
 }

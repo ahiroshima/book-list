@@ -1,5 +1,6 @@
 import 'package:app/ui/route/app_route.dart';
 import 'package:app/ui/theme/app_theme.dart';
+import 'package:app/ui/user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -13,6 +14,10 @@ class App extends HookConsumerWidget {
     final theme = ref.watch(appThemeProvider);
     final themeMode = ref.watch(appThemeModeProvider);
     final appRouter = useMemoized(() => AppRouter());
+
+    // 匿名ログイン
+    ref.read(userViewModelProvider).signIn();
+
     return MaterialApp.router(
       theme: theme.data,
       darkTheme: AppTheme.dark().data,

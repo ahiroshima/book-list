@@ -1,8 +1,8 @@
 import 'package:app/ui/detail/detail_page.dart';
 import 'package:app/ui/home/home_page.dart';
-import 'package:app/ui/news/news_page.dart';
+import 'package:app/ui/books/books_page.dart';
+import 'package:app/ui/scan/scan_page.dart';
 import 'package:app/ui/signIn/sign_in_page.dart';
-import 'package:app/ui/video/video_page.dart';
 import 'package:auto_route/auto_route.dart';
 
 export 'app_route.gr.dart';
@@ -16,12 +16,12 @@ export 'app_route.gr.dart';
       initial: true,
       children: <AutoRoute>[
         AutoRoute(
-          path: 'news',
-          page: NewsPage,
+          path: 'books',
+          page: BooksPage,
         ),
         AutoRoute(
-          path: 'video',
-          page: VideoPage,
+          path: 'book_scan',
+          page: ScanPage,
         ),
       ],
     ),

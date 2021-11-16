@@ -8,12 +8,12 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:app/data/model/article.dart' as _i8;
+import 'package:app/data/model/book.dart' as _i8;
+import 'package:app/ui/books/books_page.dart' as _i4;
 import 'package:app/ui/detail/detail_page.dart' as _i3;
 import 'package:app/ui/home/home_page.dart' as _i1;
-import 'package:app/ui/news/news_page.dart' as _i4;
+import 'package:app/ui/scan/scan_page.dart' as _i5;
 import 'package:app/ui/signIn/sign_in_page.dart' as _i2;
-import 'package:app/ui/video/video_page.dart' as _i5;
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
@@ -34,29 +34,28 @@ class AppRouter extends _i6.RootStackRouter {
           fullscreenDialog: true);
     },
     DetailRoute.name: (routeData) {
-      final queryParams = routeData.queryParams;
-      final args = routeData.argsAs<DetailRouteArgs>(
-          orElse: () => DetailRouteArgs(article: queryParams.get('article')));
+      final args = routeData.argsAs<DetailRouteArgs>();
       return _i6.AdaptivePage<dynamic>(
           routeData: routeData,
-          child: _i3.DetailPage(key: args.key, article: args.article));
+          child: _i3.DetailPage(key: args.key, book: args.book));
     },
-    NewsRoute.name: (routeData) {
+    BooksRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i4.NewsPage());
+          routeData: routeData, child: const _i4.BooksPage());
     },
-    VideoRoute.name: (routeData) {
+    ScanRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i5.VideoPage());
+          routeData: routeData, child: const _i5.ScanPage());
     }
   };
 
   @override
   List<_i6.RouteConfig> get routes => [
         _i6.RouteConfig(HomeRoute.name, path: '/', children: [
-          _i6.RouteConfig(NewsRoute.name, path: 'news', parent: HomeRoute.name),
-          _i6.RouteConfig(VideoRoute.name,
-              path: 'video', parent: HomeRoute.name)
+          _i6.RouteConfig(BooksRoute.name,
+              path: 'books', parent: HomeRoute.name),
+          _i6.RouteConfig(ScanRoute.name,
+              path: 'book_scan', parent: HomeRoute.name)
         ]),
         _i6.RouteConfig(SignInRoute.name, path: '/signIn'),
         _i6.RouteConfig(DetailRoute.name, path: '/detail')
@@ -80,33 +79,31 @@ class SignInRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for [_i3.DetailPage]
 class DetailRoute extends _i6.PageRouteInfo<DetailRouteArgs> {
-  DetailRoute({_i7.Key? key, _i8.Article? article})
+  DetailRoute({_i7.Key? key, required _i8.Book? book})
       : super(name,
-            path: '/detail',
-            args: DetailRouteArgs(key: key, article: article),
-            rawQueryParams: {'article': article});
+            path: '/detail', args: DetailRouteArgs(key: key, book: book));
 
   static const String name = 'DetailRoute';
 }
 
 class DetailRouteArgs {
-  const DetailRouteArgs({this.key, this.article});
+  const DetailRouteArgs({this.key, required this.book});
 
   final _i7.Key? key;
 
-  final _i8.Article? article;
+  final _i8.Book? book;
 }
 
-/// generated route for [_i4.NewsPage]
-class NewsRoute extends _i6.PageRouteInfo<void> {
-  const NewsRoute() : super(name, path: 'news');
+/// generated route for [_i4.BooksPage]
+class BooksRoute extends _i6.PageRouteInfo<void> {
+  const BooksRoute() : super(name, path: 'books');
 
-  static const String name = 'NewsRoute';
+  static const String name = 'BooksRoute';
 }
 
-/// generated route for [_i5.VideoPage]
-class VideoRoute extends _i6.PageRouteInfo<void> {
-  const VideoRoute() : super(name, path: 'video');
+/// generated route for [_i5.ScanPage]
+class ScanRoute extends _i6.PageRouteInfo<void> {
+  const ScanRoute() : super(name, path: 'book_scan');
 
-  static const String name = 'VideoRoute';
+  static const String name = 'ScanRoute';
 }

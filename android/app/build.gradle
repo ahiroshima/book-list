@@ -54,6 +54,8 @@ android {
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        // manifestPlaceholdersを利用して、環境変数から取得した値を任意の変数で定義する
+        manifestPlaceholders = [API_KEY: System.getenv('API_KEY')]
     }
 
     // SigningConfigs
