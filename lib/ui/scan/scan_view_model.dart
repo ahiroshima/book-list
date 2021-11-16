@@ -4,7 +4,9 @@ import 'package:app/data/repository/search_book_repository.dart';
 import 'package:app/data/repository/search_book_repository_impl.dart';
 import 'package:app/data/repository/books_repository.dart';
 import 'package:app/data/repository/books_repository_impl.dart';
+import 'package:app/ui/books/books_view_model.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
@@ -19,6 +21,7 @@ class ScanViewModel extends ChangeNotifier {
 
   late final SearchBookRepository _repository = _reader(searchBookRepositoryProvider);
   late final BooksRepository _booksRepository = _reader(booksRepositoryProvider);
+  late final booksViewModel = _reader(booksViewModelProvider);
 
   ScanResult? _result;
   ScanResult? get scanResult => _result;
@@ -38,7 +41,7 @@ class ScanViewModel extends ChangeNotifier {
   Future<void> addBook() {
     return _booksRepository
       .addBook(_bookInfo!.dataOrThrow)
-      .whenComplete(notifyListeners);
+      .whenComplete(booksViewModel.fetchBooks);
   }
 
   Future<void> scanBarcode() async {

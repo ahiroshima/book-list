@@ -52,8 +52,9 @@ class HomePage extends HookConsumerWidget {
       },
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          //context.router.navigateNamed('/book_scan');
+          context.router.pushNamed('/book_scan');
           homeViewModel.scanBarcode();
-          context.router.navigateNamed('/book_scan');
         },
         backgroundColor: Colors.blue,
         child: const Icon(Icons.add),

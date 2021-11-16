@@ -14,14 +14,14 @@ class BooksPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useL10n();
-    final homeViewModel = ref.read(booksViewModelProvider);
+    final booksViewModel = ref.read(booksViewModelProvider);
     final books = ref.watch(booksViewModelProvider.select((value) => value.books));
 
     final snapshot = useFuture(
       useMemoized(() {
         return ref
             .read(loadingStateProvider)
-            .whileLoading(homeViewModel.fetchBooks);
+            .whileLoading(booksViewModel.fetchBooks);
       }, [books?.toString()]),
     );
 
@@ -33,7 +33,7 @@ class BooksPage extends HookConsumerWidget {
                 return Center(child: Text(l10n.noResult));
               }
               return RefreshIndicator(
-                onRefresh: () async => homeViewModel.fetchBooks(),
+                onRefresh: () async => booksViewModel.fetchBooks(),
                 child: GridView.count(
                   crossAxisCount: 2,
                   children: List.generate(data.books.length, (index) {
