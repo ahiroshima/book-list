@@ -1,4 +1,4 @@
-import 'package:app/ui/scan/scan_view_model.dart';
+import 'package:app/ui/registration/registration_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -10,10 +10,11 @@ class HomeViewModel extends ChangeNotifier {
 
   final Reader _reader;
 
-  late final ScanViewModel _scanViewModel = _reader(scanViewModelProvider);
+  late final RegistrationViewModel _registrationViewModel = 
+    _reader(registrationViewModelProvider);
 
 
   Future<void> scanBarcode() async {
-    _scanViewModel.scanBarcode();
+    _registrationViewModel.scanBarcode();
   }
 }

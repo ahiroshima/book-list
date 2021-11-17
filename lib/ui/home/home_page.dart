@@ -1,9 +1,10 @@
 import 'package:app/gen/assets.gen.dart';
-import 'package:app/ui/hook/use_l10n.dart';
-import 'package:app/ui/route/app_route.gr.dart';
-import 'package:app/ui/theme/app_theme.dart';
 import 'package:app/ui/home/home_view_model.dart';
+import 'package:app/ui/hook/use_l10n.dart';
+import 'package:app/ui/route/app_route.dart';
+import 'package:app/ui/theme/app_theme.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:app/ui/hook/use_router.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -13,6 +14,7 @@ class HomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeProvider);
+    final router = useRouter();
     final l10n = useL10n();
     final homeViewModel = ref.read(homeViewModelProvider);
 
@@ -52,8 +54,7 @@ class HomePage extends HookConsumerWidget {
       },
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //context.router.navigateNamed('/book_scan');
-          context.router.pushNamed('/book_scan');
+          router.push(const RegistrationRoute());
           homeViewModel.scanBarcode();
         },
         backgroundColor: Colors.blue,
