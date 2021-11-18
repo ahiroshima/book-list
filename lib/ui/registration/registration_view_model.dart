@@ -19,8 +19,10 @@ class RegistrationViewModel extends ChangeNotifier {
 
   final Reader _reader;
 
-  late final SearchBookRepository _repository = _reader(searchBookRepositoryProvider);
-  late final BooksRepository _booksRepository = _reader(booksRepositoryProvider);
+  late final SearchBookRepository _repository =
+      _reader(searchBookRepositoryProvider);
+  late final BooksRepository _booksRepository =
+      _reader(booksRepositoryProvider);
   late final booksViewModel = _reader(booksViewModelProvider);
 
   ScanResult? _result;
@@ -31,29 +33,52 @@ class RegistrationViewModel extends ChangeNotifier {
 
   Future<void> addBook() {
     return _booksRepository
-      .addBook(_bookInfo!.dataOrThrow)
-      .whenComplete(booksViewModel.fetchBooks);
+        .addBook(_bookInfo!.dataOrThrow)
+        .whenComplete(booksViewModel.fetchBooks);
   }
 
   Future<void> scanBarcode() async {
-    try {
-      final result = await BarcodeScanner.scan();
-      _result = result;
-      if(result.rawContent.toString().startsWith('978') ||
-          result.rawContent.toString().startsWith('979')) {
-        _repository
-          .getBook(result.rawContent)
-          .then((value) => _bookInfo = value)
-          .whenComplete(notifyListeners);
+    var _options = const ScanOptions(
+      strings: {
+        'cancel': 'Cancel',
+        'flash_on': 'Flash On',
+        'flash_off': 'Flash Off',
+      },
+      autoEnableFlash: false,
+      android: AndroidOptions(aspectTolerance: 0.00, useAutoFocus: true),
+    );
+
+    while (true) {
+      try {
+        final result = await BarcodeScanner.scan(options: _options);
+        _result = result;
+        _bookInfo = null;
+        if (result.type == ResultType.Barcode && isIsdnCode(result)) {
+          _repository
+              .getBook(result.rawContent)
+              .then((value) => _bookInfo = value)
+              .whenComplete(notifyListeners);
+          break;
+        } else if(result.type == ResultType.Cancelled) {
+          break;
+        }
+      } on PlatformException catch (e) {
+        _result = ScanResult(
+            type: ResultType.Error,
+            format: BarcodeFormat.unknown,
+            rawContent: e.code == BarcodeScanner.cameraAccessDenied
+                ? 'No camera permission!'
+                : 'Unknown error: $e');
       }
-    } on PlatformException catch (e) {
-      _result = ScanResult(
-        type: ResultType.Error,
-        format: BarcodeFormat.unknown,
-        rawContent: e.code == BarcodeScanner.cameraAccessDenied
-          ? 'No camera permission!'
-          : 'Unknown error: $e');
     }
-    //notifyListeners();
+  }
+
+  bool isIsdnCode(ScanResult barcode) {
+    if (barcode.rawContent.toString().startsWith('978') ||
+        barcode.rawContent.toString().startsWith('979')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
