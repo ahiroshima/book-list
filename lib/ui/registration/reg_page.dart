@@ -2,15 +2,15 @@ import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/hook/use_router.dart';
 import 'package:app/ui/home/home_view_model.dart';
-import 'package:app/ui/registration/registration_view_model.dart';
+import 'package:app/ui/registration/reg_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class RegistrationPage extends HookConsumerWidget with AutoRouteAware {
-  const RegistrationPage({Key? key}) : super(key: key);
+class RegPage extends HookConsumerWidget with AutoRouteAware {
+  const RegPage({Key? key}) : super(key: key);
 
   @override
   void didPush() {
@@ -23,8 +23,8 @@ class RegistrationPage extends HookConsumerWidget with AutoRouteAware {
     final theme = ref.watch(appThemeProvider);
     final router = useRouter();
     final bookInfo = ref
-        .watch(registrationViewModelProvider.select((value) => value.bookInfo));
-    final registrationViewModel = ref.read(registrationViewModelProvider);
+        .watch(regViewModelProvider.select((value) => value.bookInfo));
+    final registrationViewModel = ref.read(regViewModelProvider);
 
     const BorderRadius borderRadiusTop = BorderRadius.only(
       topRight: Radius.circular(8),

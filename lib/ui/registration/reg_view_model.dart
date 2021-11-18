@@ -11,11 +11,11 @@ import 'package:flutter/services.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final registrationViewModelProvider =
-    ChangeNotifierProvider((ref) => RegistrationViewModel(ref.read));
+final regViewModelProvider =
+    ChangeNotifierProvider((ref) => RegViewModel(ref.read));
 
-class RegistrationViewModel extends ChangeNotifier {
-  RegistrationViewModel(this._reader);
+class RegViewModel extends ChangeNotifier {
+  RegViewModel(this._reader);
 
   final Reader _reader;
 

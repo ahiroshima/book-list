@@ -1,4 +1,4 @@
-import 'package:app/ui/registration/registration_view_model.dart';
+import 'package:app/ui/registration/reg_view_model.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,8 +17,8 @@ class HomeViewModel extends ChangeNotifier {
   ScanResult? _scanResult;
   ScanResult? get scanResult => _scanResult;
 
-  late final RegistrationViewModel _registrationViewModel = 
-    _reader(registrationViewModelProvider);
+  late final RegViewModel _registrationViewModel = 
+    _reader(regViewModelProvider);
 
 
   Future<void> scanBarcode() async {

@@ -12,7 +12,7 @@ import 'package:app/data/model/book.dart' as _i9;
 import 'package:app/ui/books/books_page.dart' as _i5;
 import 'package:app/ui/detail/detail_page.dart' as _i3;
 import 'package:app/ui/home/home_page.dart' as _i1;
-import 'package:app/ui/registration/registration_page.dart' as _i4;
+import 'package:app/ui/registration/reg_page.dart' as _i4;
 import 'package:app/ui/scan/scan_page.dart' as _i6;
 import 'package:app/ui/signIn/sign_in_page.dart' as _i2;
 import 'package:auto_route/auto_route.dart' as _i7;
@@ -40,10 +40,10 @@ class AppRouter extends _i7.RootStackRouter {
           routeData: routeData,
           child: _i3.DetailPage(key: args.key, book: args.book));
     },
-    RegistrationRoute.name: (routeData) {
+    RegRoute.name: (routeData) {
       return _i7.AdaptivePage<dynamic>(
           routeData: routeData,
-          child: const _i4.RegistrationPage(),
+          child: const _i4.RegPage(),
           fullscreenDialog: true);
     },
     BooksRoute.name: (routeData) {
@@ -66,7 +66,7 @@ class AppRouter extends _i7.RootStackRouter {
         ]),
         _i7.RouteConfig(SignInRoute.name, path: '/signIn'),
         _i7.RouteConfig(DetailRoute.name, path: '/detail'),
-        _i7.RouteConfig(RegistrationRoute.name, path: '/registration')
+        _i7.RouteConfig(RegRoute.name, path: '/reg')
       ];
 }
 
@@ -102,11 +102,11 @@ class DetailRouteArgs {
   final _i9.Book? book;
 }
 
-/// generated route for [_i4.RegistrationPage]
-class RegistrationRoute extends _i7.PageRouteInfo<void> {
-  const RegistrationRoute() : super(name, path: '/registration');
+/// generated route for [_i4.RegPage]
+class RegRoute extends _i7.PageRouteInfo<void> {
+  const RegRoute() : super(name, path: '/reg');
 
-  static const String name = 'RegistrationRoute';
+  static const String name = 'RegRoute';
 }
 
 /// generated route for [_i5.BooksPage]

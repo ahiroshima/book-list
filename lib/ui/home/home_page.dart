@@ -61,7 +61,7 @@ class HomePage extends HookConsumerWidget {
             // バーコード読み取りが成功の場合、登録画面を表示
             if (homeViewModel.scanResult != null &&
                 homeViewModel.scanResult!.type == ResultType.Barcode) {
-              router.push(const RegistrationRoute());
+              router.push(const RegRoute());
             }
           },
           backgroundColor: Colors.blue,
