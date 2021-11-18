@@ -5,7 +5,6 @@ import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/registration/registration_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,8 +24,6 @@ class RegistrationPage extends HookConsumerWidget with AutoRouteAware {
     final router = useRouter();
     final bookInfo = ref
         .watch(registrationViewModelProvider.select((value) => value.bookInfo));
-    final scanResult = ref.watch(
-        registrationViewModelProvider.select((value) => value.scanResult));
     final registrationViewModel = ref.read(registrationViewModelProvider);
 
     const BorderRadius borderRadiusTop = BorderRadius.only(
@@ -35,11 +32,6 @@ class RegistrationPage extends HookConsumerWidget with AutoRouteAware {
       bottomLeft: Radius.circular(8),
       bottomRight: Radius.circular(8),
     );
-
-    if (scanResult != null && scanResult.type == ResultType.Cancelled) {
-      router.pop();
-      return const Scaffold();
-    }
 
     return Scaffold(
       appBar: AppBar(),

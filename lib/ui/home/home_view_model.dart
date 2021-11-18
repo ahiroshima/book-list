@@ -1,4 +1,5 @@
 import 'package:app/ui/registration/registration_view_model.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -13,12 +14,16 @@ class HomeViewModel extends ChangeNotifier {
 
   bool get isVisibleFab => _fabVisible;
 
+  ScanResult? _scanResult;
+  ScanResult? get scanResult => _scanResult;
+
   late final RegistrationViewModel _registrationViewModel = 
     _reader(registrationViewModelProvider);
 
 
   Future<void> scanBarcode() async {
-    _registrationViewModel.scanBarcode();
+    await _registrationViewModel.scanBarcode();
+    _scanResult = _registrationViewModel.scanResult;
   }
 
   void setVisibleFab(bool visible) {

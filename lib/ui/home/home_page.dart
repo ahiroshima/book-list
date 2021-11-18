@@ -5,6 +5,7 @@ import 'package:app/ui/route/app_route.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:app/ui/hook/use_router.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -55,13 +56,17 @@ class HomePage extends HookConsumerWidget {
       floatingActionButton: Visibility(
         visible: homeViewModel.isVisibleFab,
         child: FloatingActionButton(
-        onPressed: () async {
-          await homeViewModel.scanBarcode();
-          await router.push(const RegistrationRoute());
-        },
-        backgroundColor: Colors.blue,
-        child: const Icon(Icons.add),
-      ),
+          onPressed: () async {
+            await homeViewModel.scanBarcode();
+            // バーコード読み取りが成功の場合、登録画面を表示
+            if (homeViewModel.scanResult != null &&
+                homeViewModel.scanResult!.type == ResultType.Barcode) {
+              router.push(const RegistrationRoute());
+            }
+          },
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

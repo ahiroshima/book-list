@@ -26,7 +26,7 @@ class BooksPage extends HookConsumerWidget {
     );
 
     return ContainerWithLoading(
-      child: snapshot.isWaiting || books == null
+      child: snapshot.isWaiting || books == null || books.dataOrThrow.totalResults == 0 
         ? const SizedBox()
         : books.when(success: (data) {
           if (data.books.isEmpty) {
