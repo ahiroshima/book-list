@@ -38,6 +38,7 @@ export 'app_route.gr.dart';
     AutoRoute(
       path: '/registration',
       page: RegistrationPage,
+      fullscreenDialog: true,
     ),
   ],
 )

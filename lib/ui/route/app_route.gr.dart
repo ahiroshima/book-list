@@ -42,7 +42,9 @@ class AppRouter extends _i7.RootStackRouter {
     },
     RegistrationRoute.name: (routeData) {
       return _i7.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i4.RegistrationPage());
+          routeData: routeData,
+          child: const _i4.RegistrationPage(),
+          fullscreenDialog: true);
     },
     BooksRoute.name: (routeData) {
       return _i7.AdaptivePage<dynamic>(

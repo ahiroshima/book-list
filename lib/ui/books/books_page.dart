@@ -27,23 +27,23 @@ class BooksPage extends HookConsumerWidget {
 
     return ContainerWithLoading(
       child: snapshot.isWaiting || books == null
-          ? const SizedBox()
-          : books.when(success: (data) {
-              if (data.books.isEmpty) {
-                return Center(child: Text(l10n.noResult));
-              }
-              return RefreshIndicator(
-                onRefresh: () async => booksViewModel.fetchBooks(),
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  children: List.generate(data.books.length, (index) {
-                    return BookItem(book: data.books[index]);
-                  }),
-                ),
-              );
-            }, failure: (e) {
-              return Center(child: Text(l10n.fetchFailed));
-            }),
+        ? const SizedBox()
+        : books.when(success: (data) {
+          if (data.books.isEmpty) {
+            return Center(child: Text(l10n.noResult));
+          }
+          return RefreshIndicator(
+            onRefresh: () async => booksViewModel.fetchBooks(),
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(data.books.length, (index) {
+                return BookItem(book: data.books[index]);
+              }),
+            ),
+          );
+        }, failure: (e) {
+          return Center(child: Text(l10n.fetchFailed));
+        }),
     );
   }
 }

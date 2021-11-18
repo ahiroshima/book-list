@@ -52,13 +52,16 @@ class HomePage extends HookConsumerWidget {
           ],
         );
       },
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          router.push(const RegistrationRoute());
-          homeViewModel.scanBarcode();
+      floatingActionButton: Visibility(
+        visible: homeViewModel.isVisibleFab,
+        child: FloatingActionButton(
+        onPressed: () async {
+          await homeViewModel.scanBarcode();
+          await router.push(const RegistrationRoute());
         },
         backgroundColor: Colors.blue,
         child: const Icon(Icons.add),
+      ),
       ),
     );
   }

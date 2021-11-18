@@ -9,6 +9,9 @@ class HomeViewModel extends ChangeNotifier {
   HomeViewModel(this._reader);
 
   final Reader _reader;
+  bool _fabVisible = true;
+
+  bool get isVisibleFab => _fabVisible;
 
   late final RegistrationViewModel _registrationViewModel = 
     _reader(registrationViewModelProvider);
@@ -16,5 +19,9 @@ class HomeViewModel extends ChangeNotifier {
 
   Future<void> scanBarcode() async {
     _registrationViewModel.scanBarcode();
+  }
+
+  void setVisibleFab(bool visible) {
+    _fabVisible = visible;
   }
 }

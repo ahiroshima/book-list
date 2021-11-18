@@ -1,13 +1,20 @@
 import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/hook/use_router.dart';
+import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/registration/registration_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class RegistrationPage extends HookConsumerWidget {
+class RegistrationPage extends HookConsumerWidget with AutoRouteAware {
   const RegistrationPage({Key? key}) : super(key: key);
+
+  @override
+  void didPush() {
+    homeViewModelProvider.select((value) => value.setVisibleFab(false));
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -61,7 +68,10 @@ class RegistrationPage extends HookConsumerWidget {
                       ),
                     ),
                     FloatingActionButton(
-                      onPressed: registrationViewModel.addBook,
+                      onPressed: () async {
+                        await registrationViewModel.addBook();
+                        await router.pop();
+                      },
                       backgroundColor: Colors.blue,
                       child: const Icon(Icons.add),
                     )
