@@ -17,13 +17,13 @@ class HomeViewModel extends ChangeNotifier {
   ScanResult? _scanResult;
   ScanResult? get scanResult => _scanResult;
 
-  late final RegViewModel _registrationViewModel = 
+  late final RegViewModel _regViewModel = 
     _reader(regViewModelProvider);
 
 
   Future<void> scanBarcode() async {
-    await _registrationViewModel.scanBarcode();
-    _scanResult = _registrationViewModel.scanResult;
+    await _regViewModel.scanBarcode();
+    _scanResult = _regViewModel.scanResult;
   }
 
   void setVisibleFab(bool visible) {

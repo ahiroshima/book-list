@@ -24,7 +24,7 @@ class RegPage extends HookConsumerWidget with AutoRouteAware {
     final router = useRouter();
     final bookInfo = ref
         .watch(regViewModelProvider.select((value) => value.bookInfo));
-    final registrationViewModel = ref.read(regViewModelProvider);
+    final regViewModel = ref.read(regViewModelProvider);
 
     const BorderRadius borderRadiusTop = BorderRadius.only(
       topRight: Radius.circular(8),
@@ -85,7 +85,7 @@ class RegPage extends HookConsumerWidget with AutoRouteAware {
                     const Gap(20),
                     FloatingActionButton(
                       onPressed: () async {
-                        await registrationViewModel.addBook();
+                        await regViewModel.addBook();
                         router.pop();
                       },
                       backgroundColor: Colors.blue,
