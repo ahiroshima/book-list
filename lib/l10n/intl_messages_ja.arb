@@ -18,5 +18,6 @@
   "displayName": "Display Name",
   "email": "メール",
   "uid": "ユーザID",
-  "bookList": "本の一覧"
+  "bookList": "本の一覧",
+  "page": "ページ数："
 }

@@ -36,9 +36,9 @@ class BooksPage extends HookConsumerWidget {
           ),
           actions: <Widget>[
             IconButton(
-                onPressed: () {
-                  router.push(const SignInRoute());
-                  booksViewModel.fetchBooks();
+                onPressed: () async {
+                  await router.push(const SignInRoute());
+                  await booksViewModel.fetchBooks();
                 },
                 icon: const Icon(Icons.login_outlined)),
           ],

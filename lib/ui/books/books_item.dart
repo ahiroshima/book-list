@@ -6,6 +6,7 @@ import 'package:app/ui/hook/use_router.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BookItem extends HookConsumerWidget {
@@ -18,10 +19,10 @@ class BookItem extends HookConsumerWidget {
 
   static BorderRadius borderRadiusAll = BorderRadius.circular(8);
   static BorderRadius borderRadiusTop = const BorderRadius.only(
-    topRight: Radius.circular(8),
-    topLeft: Radius.circular(8),
-    bottomLeft: Radius.circular(0),
-    bottomRight: Radius.circular(0),
+    topRight: Radius.circular(4),
+    topLeft: Radius.circular(4),
+    bottomLeft: Radius.circular(4),
+    bottomRight: Radius.circular(4),
   );
 
   @override
@@ -33,65 +34,82 @@ class BookItem extends HookConsumerWidget {
       shape: RoundedRectangleBorder(borderRadius: borderRadiusAll),
       elevation: 4,
       child: InkWell(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Text(
+        child: Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Column(
+            children: <Widget>[
+              Text(
                 book.title ?? l10n.noTitle,
-                style: theme.textTheme.h20.dense(),
+                style: theme.textTheme.h40.dense(),
                 overflow: TextOverflow.ellipsis,
               ),
-            ),
-            Hero(
-              tag: book,
-              child: SizedBox(
-                width: double.infinity,
-                height: 150,
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: ClipRRect(
-                        borderRadius: borderRadiusTop,
-                        child: networkImage(book.smallThumbnail, fit: BoxFit.contain),
+              const Gap(3),
+              book.subtitle != null
+                  ? Text(
+                      book.subtitle.toString(),
+                      style: theme.textTheme.h20.dense(),
+                      overflow: TextOverflow.ellipsis,
+                    )
+                  : const Gap(0),
+              Hero(
+                tag: book,
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 140,
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 100,
+                        child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: ClipRRect(
+                            borderRadius: borderRadiusTop,
+                            child: networkImage(book.smallThumbnail,
+                                fit: BoxFit.contain),
+                          ),
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(4),
-                            child: Text(
-                              book.authors!.isNotEmpty
-                                ? book.authors!.first
-                                : '',
-                              style: theme.textTheme.h20.dense(),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(2),
-                            child: Text(
-                              book.publisher ?? '',
-                              style: theme.textTheme.h20.dense(),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(2),
-                            child: Text(
-                              book.price ?? '',
-                              style: theme.textTheme.h20.dense(),
-                            ),
-                          ),
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            const Gap(10),
+                            book.authors != null && book.authors!.isNotEmpty
+                                ? Text(
+                                    book.authors!.first,
+                                    style: theme.textTheme.h20.dense(),
+                                  )
+                                : const Gap(0),
+                            const Gap(5),
+                            book.pageCount != 0
+                                ? Text(
+                                    l10n.page + book.pageCount.toString(),
+                                    style: theme.textTheme.h20.dense(),
+                                  )
+                                : const Gap(0),
+                            const Gap(5),
+                            book.price != null
+                                ? Text(
+                                    book.price.toString(),
+                                    style: theme.textTheme.h20.dense(),
+                                  )
+                                : const Gap(0),
+                            const Gap(5),
+                            book.publishedDate != null
+                                ? Text(
+                                    book.publishedDate.toString(),
+                                    style: theme.textTheme.h20.dense(),
+                                  )
+                                : const Gap(0),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         onTap: () => router.push(DetailRoute(book: book)),
       ),
