@@ -1,3 +1,4 @@
+import 'package:app/foundation/constants.dart';
 import 'package:app/ui/route/app_route.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:app/ui/user_view_model.dart';
@@ -17,7 +18,9 @@ class App extends HookConsumerWidget {
     final appRouter = useMemoized(() => AppRouter());
 
     // 匿名ログイン
-    ref.read(userViewModelProvider).signIn();
+    if(ref.read(userViewModelProvider).getCurrentUser().userId == null) {
+      ref.read(userViewModelProvider).signIn(SignInMethod.anonymous);
+    }
 
     return MaterialApp.router(
       theme: theme.data,

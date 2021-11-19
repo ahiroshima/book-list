@@ -1,5 +1,6 @@
 import 'package:app/app.dart';
 import 'package:app/data/model/result.dart';
+import 'package:app/foundation/constants.dart';
 import 'package:app/ui/component/loading/loading.dart';
 import 'package:app/ui/books/books_page.dart';
 import 'package:app/ui/books/books_view_model.dart';
@@ -25,7 +26,7 @@ void main() {
       .thenReturn(Result.success(data: dummyBooks));
 
   final mockUserViewModel = MockUserViewModel();
-  when(mockUserViewModel.signIn).thenAnswer((_) => Future.value());
+  when(() => mockUserViewModel.signIn(SignInMethod.anonymous)).thenAnswer((_) => Future.value());
   when(mockUserViewModel.signOut).thenAnswer((_) => Future.value());
 
   testWidgets('App widget test', (tester) async {

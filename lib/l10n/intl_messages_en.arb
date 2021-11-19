@@ -3,10 +3,11 @@
   "ok": "OK",
   "cancel": "CANCEL",
   "news": "News",
-  "signIn": "SignIn",
+  "signIn": "Sign-In",
   "video": "Video",
   "googleSignIn": "Google Sign-In",
   "googleSignOut": "Sign-Out",
+  "signOut": "Sign-Out",
   "detail": "Detail",
   "error": "An error occurred",
   "reload": "Reload",
@@ -16,5 +17,6 @@
   "noTitle":  "No Title",
   "displayName": "Display Name",
   "email": "Email",
-  "uid": "UserId"
+  "uid": "UserId",
+  "bookList": "Book List"
 }

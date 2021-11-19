@@ -17,7 +17,8 @@ class ScanPage extends HookConsumerWidget with AutoRouteAware {
     final router = useRouter();
     final theme = ref.watch(appThemeProvider);
     final scanViewModel = ref.read(scanViewModelProvider);
-    final bookInfo = ref.watch(scanViewModelProvider.select((value) => value.bookInfo));
+    final bookInfo =
+        ref.watch(scanViewModelProvider.select((value) => value.bookInfo));
 
     const BorderRadius borderRadiusTop = BorderRadius.only(
       topRight: Radius.circular(8),
@@ -27,12 +28,7 @@ class ScanPage extends HookConsumerWidget with AutoRouteAware {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 85,
-        leading: const Icon(
-          Icons.arrow_back_rounded,
-        ),
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(50.0),
         child: SizedBox(
@@ -49,7 +45,6 @@ class ScanPage extends HookConsumerWidget with AutoRouteAware {
                   onSubmitted: scanViewModel.searchBook,
                 ),
               ),
-
               if (bookInfo != null)
                 bookInfo.when(success: (data) {
                   return Center(
@@ -75,8 +70,8 @@ class ScanPage extends HookConsumerWidget with AutoRouteAware {
                         const Gap(10),
                         Text(
                           data.authors!.isNotEmpty
-                            ? data.authors!.first.toString()
-                            : '',
+                              ? data.authors!.first.toString()
+                              : '',
                           style: theme.textTheme.h40.dense(),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -91,7 +86,8 @@ class ScanPage extends HookConsumerWidget with AutoRouteAware {
                           padding: const EdgeInsets.all(10),
                           child: ClipRRect(
                             borderRadius: borderRadiusTop,
-                            child: networkImage(data.smallThumbnail, fit: BoxFit.fitHeight),
+                            child: networkImage(data.smallThumbnail,
+                                fit: BoxFit.fitHeight),
                           ),
                         ),
                         const Gap(20),

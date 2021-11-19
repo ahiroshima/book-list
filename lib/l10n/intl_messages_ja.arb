@@ -1,12 +1,13 @@
 {
   "@@locale": "ja",
   "ok": "OK",
-  "cancel": "CANCEL",
+  "cancel": "キャンセル",
   "news": "ニュース",
   "signIn": "ログイン",
   "video": "ビデオ",
   "googleSignIn": "Google サインイン",
   "googleSignOut": "サインアウト",
+  "signOut": "サインアウト",
   "detail": "詳細",
   "error": "エラーが発生しました",
   "reload": "更新する",
@@ -16,5 +17,6 @@
   "noTitle":  "No Title",
   "displayName": "Display Name",
   "email": "メール",
-  "uid": "ユーザID"
+  "uid": "ユーザID",
+  "bookList": "本の一覧"
 }

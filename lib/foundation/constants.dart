@@ -40,4 +40,7 @@ class Constants {
   static late final Constants instance = Constants.of();
 
   final String endpoint;
+
 }
+
+enum SignInMethod{ anonymous, email, google }
