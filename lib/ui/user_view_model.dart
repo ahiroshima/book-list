@@ -29,13 +29,14 @@ class UserViewModel extends ChangeNotifier {
   void setEmail(String email) {
     _email = email;
   }
+
   void setPassword(String password) {
     _password = password;
   }
 
   AppUser getCurrentUser() {
     AppUser currentUser = _repository.getCurrentUser();
-    if(_user == null || _user!.userId == null) {
+    if (_user == null || _user?.userId == null) {
       _user = currentUser;
     }
     return currentUser;
