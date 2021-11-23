@@ -1,4 +1,4 @@
-import 'package:app/gen/assets.gen.dart';
+import 'package:app/foundation/constants.dart';
 import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/component/loading/container_with_loading.dart';
 import 'package:app/ui/hook/use_l10n.dart';
@@ -82,19 +82,20 @@ class SignInPage extends HookConsumerWidget {
                 ),
               ),
             ),
-            const Gap(12),
-            TextButton.icon(
+            const Gap(50),
+            TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: theme.appColors.signIn,
               ),
               onPressed: () {
                 loading.whileLoading(() async {
-                  return ref.read(userViewModelProvider).signIn();
+                  return ref
+                      .read(userViewModelProvider)
+                      .signIn(SignInMethod.email);
                 });
               },
-              icon: Assets.svgs.firebase.svg(width: 24),
-              label: Text(
-                l10n.googleSignIn,
+              child: Text(
+                l10n.signIn,
                 style: theme.textTheme.h50.copyWith(
                   color: Colors.white,
                 ),
@@ -107,12 +108,28 @@ class SignInPage extends HookConsumerWidget {
               ),
               onPressed: userViewModel.signOut,
               child: Text(
-                l10n.googleSignOut,
+                l10n.signOut,
                 style: theme.textTheme.h50.copyWith(
                   color: Colors.white,
                 ),
               ),
-            )
+            ),
+            const SizedBox(height: 20.0),
+            TextFormField(
+              validator: (val) => val!.isEmpty ? 'Enter an E-mail' : null,
+              onChanged: (val) {
+                userViewModel.setEmail(val);
+              },
+            ),
+            const SizedBox(height: 20.0),
+            TextFormField(
+              obscureText: true,
+              validator: (val) =>
+                  val!.length < 8 ? 'Enter a Password 8+ chars long' : null,
+              onChanged: (val) {
+                userViewModel.setPassword(val);
+              },
+            ),
           ],
         ),
       ),

@@ -5,15 +5,18 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final authDataSourceProvider = Provider((ref) => AuthDataSourceImpl(ref.read));
+final authDataSourceProviderForGoogle = Provider((ref) => AuthDataSourceImplForGoogle(ref.read));
 
-class AuthDataSourceImpl implements AuthDataSource {
-  AuthDataSourceImpl(this._reader);
+class AuthDataSourceImplForGoogle implements AuthDataSource {
+  AuthDataSourceImplForGoogle(this._reader);
 
   final Reader _reader;
 
   late final firebase.FirebaseAuth _firebaseAuth =
       _reader(firebaseAuthProvider);
+
+  @override
+  firebase.User? getCurrentUser() => _firebaseAuth.currentUser;
 
   @override
   Future<firebase.User?> signIn() async {
