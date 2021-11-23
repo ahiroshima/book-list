@@ -87,7 +87,7 @@ class SignInRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for [_i3.DetailPage]
 class DetailRoute extends _i7.PageRouteInfo<DetailRouteArgs> {
-  DetailRoute({_i8.Key? key, required _i9.Book? book})
+  DetailRoute({_i8.Key? key, required _i9.Book book})
       : super(name,
             path: '/detail', args: DetailRouteArgs(key: key, book: book));
 
@@ -99,7 +99,7 @@ class DetailRouteArgs {
 
   final _i8.Key? key;
 
-  final _i9.Book? book;
+  final _i9.Book book;
 }
 
 /// generated route for [_i4.RegPage]

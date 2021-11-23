@@ -19,5 +19,6 @@
   "email": "メール",
   "uid": "ユーザID",
   "bookList": "本の一覧",
-  "page": "ページ数："
+  "page": "ページ数：",
+  "isbn": "ISBN: "
 }

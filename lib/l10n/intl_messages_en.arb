@@ -19,5 +19,6 @@
   "email": "Email",
   "uid": "UserId",
   "bookList": "Book List",
-  "page": "Number of pages: "
+  "page": "Number of pages: ",
+  "isbn": "ISBN: "
 }
