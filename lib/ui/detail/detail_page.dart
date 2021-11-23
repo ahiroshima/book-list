@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:gap/gap.dart';
 
 class DetailPage extends HookConsumerWidget {
-  DetailPage({
+  const DetailPage({
     Key? key,
     required this.book,
   }) : super(key: key);
@@ -57,12 +57,12 @@ class DetailPage extends HookConsumerWidget {
                 ),
                 const Gap(10),
                 Text(
-                  l10n.isbn + book.isbn.toString() ?? '',
+                  l10n.isbn + book.isbn.toString(),
                   style: theme.textTheme.h30.dense(),
                 ),
                 const Gap(10),
                 Text(
-                  l10n.page + book.pageCount.toString() ?? '',
+                  l10n.page + book.pageCount.toString(),
                   style: theme.textTheme.h30.dense(),
                 ),
                 const Gap(10),
