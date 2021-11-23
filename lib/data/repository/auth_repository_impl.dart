@@ -31,25 +31,25 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Result<AppUser>> signIn(SignInMethod signInMethod,
       [String? email, String? password]) {
+    AuthDataSource dataSource;
     switch (signInMethod) {
       case SignInMethod.anonymous:
-        _dataSource = _reader(authDataSourceProviderForAnonymous);
+        dataSource = _reader(authDataSourceProviderForAnonymous);
         break;
       case SignInMethod.email:
-        AuthDataSourceImplForEmail _dataSource =
-            _reader(authDataSourceProviderForEmail);
+        dataSource = _reader(authDataSourceProviderForEmail);
         // TODO; 入力パラメータチェック
-        _dataSource.setEmail(email ?? '');
-        _dataSource.setPassword(password ?? '');
-        return Result.guardFuture(
-            () async => AppUser.from(await _dataSource.signIn()));
-        //break;
+        (dataSource as AuthDataSourceImplForEmail).setEmail(email ?? '');
+        dataSource.setPassword(password ?? '');
+        break;
       case SignInMethod.google:
-        _dataSource = _reader(authDataSourceProviderForGoogle);
+        dataSource = _reader(authDataSourceProviderForGoogle);
         break;
       default:
+        dataSource = _reader(authDataSourceProviderForAnonymous);
         break;
     }
+    _dataSource = dataSource;
     return Result.guardFuture(
         () async => AppUser.from(await _dataSource.signIn()));
   }
