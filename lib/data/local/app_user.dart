@@ -13,11 +13,13 @@ abstract class AppUser with _$AppUser {
   }) = _AppUser;
 
   factory AppUser.from(User? firebaseUser) {
-    return AppUser(
-      userId: firebaseUser?.uid,
-      imageUrl: firebaseUser?.photoURL,
-      name: firebaseUser?.displayName,
-      email: firebaseUser?.email,
-    );
+    return firebaseUser == null
+        ? AppUser()
+        : AppUser(
+            userId: firebaseUser.uid,
+            imageUrl: firebaseUser.photoURL,
+            name: firebaseUser.displayName,
+            email: firebaseUser.email,
+          );
   }
 }

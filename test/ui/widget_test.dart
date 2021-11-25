@@ -1,4 +1,5 @@
 import 'package:app/app.dart';
+import 'package:app/data/local/app_user.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/foundation/constants.dart';
 import 'package:app/ui/component/loading/loading.dart';
@@ -27,6 +28,7 @@ void main() {
 
   final mockUserViewModel = MockUserViewModel();
   when(() => mockUserViewModel.signIn(SignInMethod.anonymous)).thenAnswer((_) => Future.value());
+  when(mockUserViewModel.getCurrentUser).thenAnswer((_) => AppUser());
   when(mockUserViewModel.signOut).thenAnswer((_) => Future.value());
 
   testWidgets('App widget test', (tester) async {

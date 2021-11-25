@@ -18,8 +18,9 @@ class App extends HookConsumerWidget {
     final appRouter = useMemoized(() => AppRouter());
 
     // 匿名ログイン
-    if(ref.read(userViewModelProvider).getCurrentUser().userId == null) {
-      ref.read(userViewModelProvider).signIn(SignInMethod.anonymous);
+    final UserViewModel _userViewModel = ref.read(userViewModelProvider);
+    if(_userViewModel.getCurrentUser().userId == null) {
+      _userViewModel.signIn(SignInMethod.anonymous);
     }
 
     return MaterialApp.router(
