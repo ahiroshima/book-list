@@ -38,7 +38,6 @@ class AuthRepositoryImpl implements AuthRepository {
         break;
       case SignInMethod.email:
         dataSource = _reader(authDataSourceProviderForEmail);
-        // TODO; 入力パラメータチェック
         (dataSource as AuthDataSourceImplForEmail).setEmail(email ?? '');
         dataSource.setPassword(password ?? '');
         break;
