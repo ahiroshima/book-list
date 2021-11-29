@@ -43,7 +43,7 @@ class AppColors {
   factory AppColors.light() {
     return const AppColors(
       background: Colors.white,
-      accent: Color(0xff17c063),
+      accent: Color(0xff5D4037),
       disabled: Colors.black12,
       error: Color(0xffff7466),
       divider: Colors.black54,
@@ -55,7 +55,7 @@ class AppColors {
   factory AppColors.dark() {
     return const AppColors(
       background: Color(0xff121212),
-      accent: Color(0xff17c063),
+      accent: Color(0xffBCAAA4),
       disabled: Colors.white12,
       error: Color(0xffff5544),
       divider: Colors.white54,

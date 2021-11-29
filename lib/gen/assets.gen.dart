@@ -22,7 +22,6 @@ class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
   SvgGenImage get firebase => const SvgGenImage('assets/svgs/firebase.svg');
-  SvgGenImage get news => const SvgGenImage('assets/svgs/news.svg');
   SvgGenImage get video => const SvgGenImage('assets/svgs/video.svg');
 }
 

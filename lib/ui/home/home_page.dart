@@ -27,28 +27,30 @@ class HomePage extends HookConsumerWidget {
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
           currentIndex: tabsRouter.activeIndex,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedItemColor: theme.appColors.accent,
+          unselectedItemColor: theme.appColors.disabled,
+          iconSize: 30,
           onTap: tabsRouter.setActiveIndex,
-          iconSize: 20,
           items: [
             BottomNavigationBarItem(
-              icon: Assets.svgs.news.svg(
-                width: 20,
+              icon: Icon(
+                Icons.home,
                 color: tabsRouter.current.name == BooksRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
-              label: l10n.news,
+              label: l10n.home,
             ),
             BottomNavigationBarItem(
-              icon: Assets.svgs.video.svg(
-                width: 20,
+              icon: Icon(
+                Icons.search,
                 color: tabsRouter.current.name == ScanRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
-              label: l10n.news,
+              label: l10n.search,
             ),
           ],
         );
