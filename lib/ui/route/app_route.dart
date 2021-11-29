@@ -3,6 +3,8 @@ import 'package:app/ui/detail/detail_page.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/registration/reg_page.dart';
 import 'package:app/ui/scan/scan_page.dart';
+import 'package:app/ui/notification/notification_page.dart';
+import 'package:app/ui/mypage/my_page.dart';
 import 'package:app/ui/signIn/sign_in_page.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -24,6 +26,14 @@ export 'app_route.gr.dart';
           path: 'book_scan',
           page: ScanPage,
         ),
+        AutoRoute(
+          path: 'notification',
+          page: NotificationPage,
+        ),
+        AutoRoute(
+          path: 'mypage',
+          page: MyPage,
+        ),
       ],
     ),
     AutoRoute(
@@ -34,6 +44,7 @@ export 'app_route.gr.dart';
     AutoRoute(
       path: '/detail',
       page: DetailPage,
+      fullscreenDialog: true,
     ),
     AutoRoute(
       path: '/reg',

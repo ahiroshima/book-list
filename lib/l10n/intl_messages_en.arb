@@ -5,6 +5,8 @@
   "home": "Home",
   "signIn": "Sign-In",
   "search": "Search",
+  "notification": "Notification",
+  "mypage": "My Page",
   "googleSignIn": "Google Sign-In",
   "googleSignOut": "Sign-Out",
   "signOut": "Sign-Out",

@@ -22,13 +22,6 @@ class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
   SvgGenImage get firebase => const SvgGenImage('assets/svgs/firebase.svg');
-  SvgGenImage get video => const SvgGenImage('assets/svgs/video.svg');
-}
-
-class $AssetsVideosGen {
-  const $AssetsVideosGen();
-
-  String get bigbuckbunny => 'assets/videos/bigbuckbunny.mp4';
 }
 
 class Assets {
@@ -36,7 +29,6 @@ class Assets {
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
-  static const $AssetsVideosGen videos = $AssetsVideosGen();
 }
 
 class AssetGenImage extends AssetImage {

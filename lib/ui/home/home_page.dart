@@ -1,4 +1,3 @@
-import 'package:app/gen/assets.gen.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/route/app_route.dart';
@@ -23,6 +22,8 @@ class HomePage extends HookConsumerWidget {
       routes: const [
         BooksRoute(),
         ScanRoute(),
+        NotificationRoute(),
+        MyRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
@@ -51,6 +52,24 @@ class HomePage extends HookConsumerWidget {
                     : theme.appColors.disabled,
               ),
               label: l10n.search,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.notifications,
+                color: tabsRouter.current.name == ScanRoute.name
+                    ? theme.appColors.accent
+                    : theme.appColors.disabled,
+              ),
+              label: l10n.notification,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                color: tabsRouter.current.name == ScanRoute.name
+                    ? theme.appColors.accent
+                    : theme.appColors.disabled,
+              ),
+              label: l10n.mypage,
             ),
           ],
         );

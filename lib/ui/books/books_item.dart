@@ -38,19 +38,6 @@ class BookItem extends HookConsumerWidget {
           padding: const EdgeInsets.all(2.0),
           child: Column(
             children: <Widget>[
-              Text(
-                book.title ?? l10n.noTitle,
-                style: theme.textTheme.h20.dense(),
-                overflow: TextOverflow.ellipsis,
-              ),
-              const Gap(3),
-              /*book.subtitle != null
-                  ? Text(
-                      book.subtitle.toString(),
-                      style: theme.textTheme.h20.dense(),
-                      overflow: TextOverflow.ellipsis,
-                    )
-                  : const Gap(0),*/
               Hero(
                 tag: book,
                 child: SizedBox(
@@ -66,7 +53,7 @@ class BookItem extends HookConsumerWidget {
                           child: ClipRRect(
                             borderRadius: borderRadiusTop,
                             child: networkImage(book.smallThumbnail,
-                                fit: BoxFit.contain),
+                                fit: BoxFit.cover),
                           ),
                         ),
                       ),
@@ -109,6 +96,19 @@ class BookItem extends HookConsumerWidget {
                   ),
                 ),
               ),
+              const Gap(3),
+              Text(
+                book.title ?? l10n.noTitle,
+                style: theme.textTheme.h20.dense(),
+                overflow: TextOverflow.ellipsis,
+              ),
+              /*book.subtitle != null
+                  ? Text(
+                      book.subtitle.toString(),
+                      style: theme.textTheme.h20.dense(),
+                      overflow: TextOverflow.ellipsis,
+                    )
+                  : const Gap(0),*/
             ],
           ),
         ),
