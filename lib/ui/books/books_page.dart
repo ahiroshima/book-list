@@ -55,7 +55,8 @@ class BooksPage extends HookConsumerWidget {
                   return RefreshIndicator(
                     onRefresh: () async => booksViewModel.fetchBooks(),
                     child: GridView.count(
-                      crossAxisCount: 2,
+                      crossAxisCount: 3,
+                      childAspectRatio: 0.75,
                       children: List.generate(data.books.length, (index) {
                         return BookItem(book: data.books[index]);
                       }),

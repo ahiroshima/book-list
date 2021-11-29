@@ -40,23 +40,24 @@ class BookItem extends HookConsumerWidget {
             children: <Widget>[
               Text(
                 book.title ?? l10n.noTitle,
-                style: theme.textTheme.h40.dense(),
+                style: theme.textTheme.h20.dense(),
                 overflow: TextOverflow.ellipsis,
               ),
               const Gap(3),
-              book.subtitle != null
+              /*book.subtitle != null
                   ? Text(
                       book.subtitle.toString(),
                       style: theme.textTheme.h20.dense(),
                       overflow: TextOverflow.ellipsis,
                     )
-                  : const Gap(0),
+                  : const Gap(0),*/
               Hero(
                 tag: book,
                 child: SizedBox(
                   width: double.infinity,
                   height: 140,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(
                         width: 100,
@@ -69,7 +70,7 @@ class BookItem extends HookConsumerWidget {
                           ),
                         ),
                       ),
-                      Expanded(
+                      /*Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -103,7 +104,7 @@ class BookItem extends HookConsumerWidget {
                                 : const Gap(0),
                           ],
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
