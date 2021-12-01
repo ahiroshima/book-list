@@ -3,9 +3,12 @@
   "ok": "OK",
   "cancel": "CANCEL",
   "home": "Home",
+  "bookList": "Book List",
+  "searchBook": "Search for a book",
+  "notification": "Notification",
+  "mypage": "My Page",
   "signIn": "Sign-In",
   "search": "Search",
-  "notification": "Notification",
   "mypage": "My Page",
   "googleSignIn": "Google Sign-In",
   "googleSignOut": "Sign-Out",
@@ -20,7 +23,6 @@
   "displayName": "Display Name",
   "email": "Email",
   "uid": "UserId",
-  "bookList": "Book List",
   "page": "Number of pages: ",
   "isbn": "ISBN: "
 }

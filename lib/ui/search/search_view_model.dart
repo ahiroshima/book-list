@@ -12,10 +12,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 
 final scanViewModelProvider =
-    ChangeNotifierProvider((ref) => ScanViewModel(ref.read));
+    ChangeNotifierProvider((ref) => SearchViewModel(ref.read));
 
-class ScanViewModel extends ChangeNotifier {
-  ScanViewModel(this._reader);
+class SearchViewModel extends ChangeNotifier {
+  SearchViewModel(this._reader);
 
   final Reader _reader;
 

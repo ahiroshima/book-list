@@ -21,7 +21,7 @@ class HomePage extends HookConsumerWidget {
     return AutoTabsScaffold(
       routes: const [
         BooksRoute(),
-        ScanRoute(),
+        SearchRoute(),
         NotificationRoute(),
         MyRoute(),
       ],
@@ -47,7 +47,7 @@ class HomePage extends HookConsumerWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
-                color: tabsRouter.current.name == ScanRoute.name
+                color: tabsRouter.current.name == SearchRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
@@ -56,7 +56,7 @@ class HomePage extends HookConsumerWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.notifications,
-                color: tabsRouter.current.name == ScanRoute.name
+                color: tabsRouter.current.name == NotificationRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
@@ -65,7 +65,7 @@ class HomePage extends HookConsumerWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
-                color: tabsRouter.current.name == ScanRoute.name
+                color: tabsRouter.current.name == MyRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),

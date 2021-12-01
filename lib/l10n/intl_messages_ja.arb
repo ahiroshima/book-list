@@ -3,9 +3,12 @@
   "ok": "OK",
   "cancel": "キャンセル",
   "home": "ホーム",
+  "bookList": "本の一覧",
+  "searchBook": "本を探す",
+  "notification": "お知らせ",
+  "mypage": "マイページ",
   "signIn": "ログイン",
   "search": "調べる",
-  "notification": "お知らせ",
   "mypage": "マイページ",
   "googleSignIn": "Google サインイン",
   "googleSignOut": "サインアウト",
@@ -20,7 +23,6 @@
   "displayName": "Display Name",
   "email": "メール",
   "uid": "ユーザID",
-  "bookList": "本の一覧",
   "page": "ページ数：",
   "isbn": "ISBN: "
 }

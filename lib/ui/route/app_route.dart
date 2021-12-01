@@ -2,7 +2,7 @@ import 'package:app/ui/books/books_page.dart';
 import 'package:app/ui/detail/detail_page.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/registration/reg_page.dart';
-import 'package:app/ui/scan/scan_page.dart';
+import 'package:app/ui/search/search_page.dart';
 import 'package:app/ui/notification/notification_page.dart';
 import 'package:app/ui/mypage/my_page.dart';
 import 'package:app/ui/signIn/sign_in_page.dart';
@@ -24,7 +24,7 @@ export 'app_route.gr.dart';
         ),
         AutoRoute(
           path: 'book_scan',
-          page: ScanPage,
+          page: SearchPage,
         ),
         AutoRoute(
           path: 'notification',

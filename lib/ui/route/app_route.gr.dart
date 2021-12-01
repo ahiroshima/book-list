@@ -15,7 +15,7 @@ import 'package:app/ui/home/home_page.dart' as _i1;
 import 'package:app/ui/mypage/my_page.dart' as _i8;
 import 'package:app/ui/notification/notification_page.dart' as _i7;
 import 'package:app/ui/registration/reg_page.dart' as _i4;
-import 'package:app/ui/scan/scan_page.dart' as _i6;
+import 'package:app/ui/search/search_page.dart' as _i6;
 import 'package:app/ui/signIn/sign_in_page.dart' as _i2;
 import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
@@ -53,9 +53,9 @@ class AppRouter extends _i9.RootStackRouter {
       return _i9.AdaptivePage<dynamic>(
           routeData: routeData, child: const _i5.BooksPage());
     },
-    ScanRoute.name: (routeData) {
+    SearchRoute.name: (routeData) {
       return _i9.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i6.ScanPage());
+          routeData: routeData, child: const _i6.SearchPage());
     },
     NotificationRoute.name: (routeData) {
       return _i9.AdaptivePage<dynamic>(
@@ -72,7 +72,7 @@ class AppRouter extends _i9.RootStackRouter {
         _i9.RouteConfig(HomeRoute.name, path: '/', children: [
           _i9.RouteConfig(BooksRoute.name,
               path: 'books', parent: HomeRoute.name),
-          _i9.RouteConfig(ScanRoute.name,
+          _i9.RouteConfig(SearchRoute.name,
               path: 'book_scan', parent: HomeRoute.name),
           _i9.RouteConfig(NotificationRoute.name,
               path: 'notification', parent: HomeRoute.name),
@@ -130,11 +130,11 @@ class BooksRoute extends _i9.PageRouteInfo<void> {
   static const String name = 'BooksRoute';
 }
 
-/// generated route for [_i6.ScanPage]
-class ScanRoute extends _i9.PageRouteInfo<void> {
-  const ScanRoute() : super(name, path: 'book_scan');
+/// generated route for [_i6.SearchPage]
+class SearchRoute extends _i9.PageRouteInfo<void> {
+  const SearchRoute() : super(name, path: 'book_scan');
 
-  static const String name = 'ScanRoute';
+  static const String name = 'SearchRoute';
 }
 
 /// generated route for [_i7.NotificationPage]

@@ -19,7 +19,11 @@ class NotificationPage extends HookConsumerWidget with AutoRouteAware {
     final notificationViewModel = ref.read(notificationViewModelProvider);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Center(
+          child: Text(l10n.notification),
+        ),
+      ),
       body: const SizedBox(
       ),
     );

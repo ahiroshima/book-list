@@ -1,5 +1,5 @@
 import 'package:app/ui/component/image/image.dart';
-import 'package:app/ui/scan/scan_view_model.dart';
+import 'package:app/ui/search/search_view_model.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/hook/use_router.dart';
 import 'package:app/ui/theme/app_theme.dart';
@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ScanPage extends HookConsumerWidget with AutoRouteAware {
-  const ScanPage({Key? key}) : super(key: key);
+class SearchPage extends HookConsumerWidget with AutoRouteAware {
+  const SearchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +28,11 @@ class ScanPage extends HookConsumerWidget with AutoRouteAware {
     );
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Center(
+          child: Text(l10n.searchBook),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(50.0),
         child: SizedBox(

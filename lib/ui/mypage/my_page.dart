@@ -19,9 +19,12 @@ class MyPage extends HookConsumerWidget with AutoRouteAware {
     final mypageViewModel = ref.read(mypageViewModelProvider);
 
     return Scaffold(
-      appBar: AppBar(),
-      body: const SizedBox(
+      appBar: AppBar(
+        title: Center(
+          child: Text(l10n.mypage),
+        ),
       ),
+      body: const SizedBox(),
     );
   }
 }
