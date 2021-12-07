@@ -24,5 +24,6 @@
   "email": "メール",
   "uid": "ユーザID",
   "page": "ページ数：",
-  "isbn": "ISBN: "
+  "isbn": "ISBN: ",
+  "tabAll": "全て"
 }

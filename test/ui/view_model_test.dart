@@ -6,6 +6,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../data/dummy/dummy_books.dart';
+import '../data/dummy/dummy_book_list.dart';
+import '../data/dummy/dummy_collections.dart';
 import '../data/repository/fake_books_repository_impl.dart';
 
 class MockBooksRepositoryImpl extends Mock implements BooksRepositoryImpl {}
@@ -19,7 +21,10 @@ void main() {
     );
     final viewModel = container.read(booksViewModelProvider);
     await expectLater(
-        viewModel.fetchBooks(), completion(Result.success(data: dummyBooks)));
+        viewModel.fetchCollections(), completion(Result.success(data: dummyCollections)));
+    // TODO: テストを追加
+    //await expectLater(
+    //    viewModel.fetchBooks(), completion(Result.success(data: dummyBookList)));
   });
 
   test('BooksRepository Test', () async {

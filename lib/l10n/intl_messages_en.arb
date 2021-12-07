@@ -24,5 +24,6 @@
   "email": "Email",
   "uid": "UserId",
   "page": "Number of pages: ",
-  "isbn": "ISBN: "
+  "isbn": "ISBN: ",
+  "tabAll": "All: "
 }
