@@ -23,7 +23,6 @@ class BooksViewModel extends ChangeNotifier {
   Result<Collections>? _collections;
   Result<Collections>? get collectios => _collections;
 
-
   Future<void> fetchBooks() {
     return _repository.getBooks().then((value) {
       _bookList = classifyBooks(value);

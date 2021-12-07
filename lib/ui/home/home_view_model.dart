@@ -17,9 +17,7 @@ class HomeViewModel extends ChangeNotifier {
   ScanResult? _scanResult;
   ScanResult? get scanResult => _scanResult;
 
-  late final RegViewModel _regViewModel = 
-    _reader(regViewModelProvider);
-
+  late final RegViewModel _regViewModel = _reader(regViewModelProvider);
 
   Future<void> scanBarcode() async {
     await _regViewModel.scanBarcode();

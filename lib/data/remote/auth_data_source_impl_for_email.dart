@@ -24,6 +24,7 @@ class AuthDataSourceImplForEmail implements AuthDataSource {
   void setEmail(String email) {
     _email = email;
   }
+
   void setPassword(String password) {
     _password = password;
   }

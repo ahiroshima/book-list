@@ -19,7 +19,7 @@ class App extends HookConsumerWidget {
 
     // 匿名ログイン
     final UserViewModel _userViewModel = ref.read(userViewModelProvider);
-    if(_userViewModel.getCurrentUser().userId == null) {
+    if (_userViewModel.getCurrentUser().userId == null) {
       _userViewModel.signIn(SignInMethod.anonymous);
     }
 
@@ -31,11 +31,11 @@ class App extends HookConsumerWidget {
       supportedLocales: L10n.supportedLocales,
       routeInformationParser: appRouter.defaultRouteParser(),
       //routerDelegate: appRouter.delegate(),
-      routerDelegate: AutoRouterDelegate(    
-        appRouter,    
-       // Provide an AutoRouteObserver instance    
-        navigatorObservers: () => [AutoRouteObserver()],    
-      ), 
+      routerDelegate: AutoRouterDelegate(
+        appRouter,
+        // Provide an AutoRouteObserver instance
+        navigatorObservers: () => [AutoRouteObserver()],
+      ),
     );
   }
 }

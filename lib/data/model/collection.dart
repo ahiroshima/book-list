@@ -11,5 +11,6 @@ abstract class Collection with _$Collection {
     required List<dynamic> books,
   }) = _Collection;
 
-  factory Collection.fromJson(Map<String, dynamic> json) => _$CollectionFromJson(json);
+  factory Collection.fromJson(Map<String, dynamic> json) =>
+      _$CollectionFromJson(json);
 }

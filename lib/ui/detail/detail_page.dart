@@ -22,8 +22,7 @@ class DetailPage extends HookConsumerWidget {
     final l10n = useL10n();
 
     return Scaffold(
-      appBar: AppBar(
-      ),
+      appBar: AppBar(),
       body: GestureDetector(
         child: Center(
           child: Padding(

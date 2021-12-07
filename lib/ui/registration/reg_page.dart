@@ -22,8 +22,8 @@ class RegPage extends HookConsumerWidget with AutoRouteAware {
     final l10n = useL10n();
     final theme = ref.watch(appThemeProvider);
     final router = useRouter();
-    final bookInfo = ref
-        .watch(regViewModelProvider.select((value) => value.bookInfo));
+    final bookInfo =
+        ref.watch(regViewModelProvider.select((value) => value.bookInfo));
     final regViewModel = ref.read(regViewModelProvider);
 
     const BorderRadius borderRadiusTop = BorderRadius.only(
