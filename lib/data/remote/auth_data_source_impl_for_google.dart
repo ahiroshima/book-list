@@ -5,7 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final authDataSourceProviderForGoogle = Provider((ref) => AuthDataSourceImplForGoogle(ref.read));
+final authDataSourceProviderForGoogle =
+    Provider((ref) => AuthDataSourceImplForGoogle(ref.read));
 
 class AuthDataSourceImplForGoogle implements AuthDataSource {
   AuthDataSourceImplForGoogle(this._reader);

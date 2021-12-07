@@ -12,5 +12,6 @@ abstract class Collections with _$Collections {
     required List<Collection> col,
   }) = _Collections;
 
-  factory Collections.fromJson(Map<String, dynamic> json) => _$CollectionsFromJson(json);
+  factory Collections.fromJson(Map<String, dynamic> json) =>
+      _$CollectionsFromJson(json);
 }

@@ -3,7 +3,8 @@ import 'package:app/data/remote/auth_data_source.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final authDataSourceProviderForAnonymous = Provider((ref) => AuthDataSourceImplAnonymous(ref.read));
+final authDataSourceProviderForAnonymous =
+    Provider((ref) => AuthDataSourceImplAnonymous(ref.read));
 
 class AuthDataSourceImplAnonymous implements AuthDataSource {
   AuthDataSourceImplAnonymous(this._reader);
@@ -20,8 +21,9 @@ class AuthDataSourceImplAnonymous implements AuthDataSource {
   Future<firebase.User?> signIn() async {
     try {
       await _firebaseAuth.signInAnonymously();
-    } on firebase.FirebaseAuthException catch(e) {
-      return throw StateError('Maybe Anonymounns SingIn is NOT allowed. ${e.message}');
+    } on firebase.FirebaseAuthException catch (e) {
+      return throw StateError(
+          'Maybe Anonymounns SingIn is NOT allowed. ${e.message}');
     }
 
     final currentUser = _firebaseAuth.currentUser;
@@ -34,7 +36,7 @@ class AuthDataSourceImplAnonymous implements AuthDataSource {
       await _firebaseAuth.signOut();
       // サインアウトしたら新たに匿名ユーザーでサインインする
       await signIn();
-    } on firebase.FirebaseAuthException catch(e) {
+    } on firebase.FirebaseAuthException catch (e) {
       throw StateError('Maybe Anonymounns SingIn is NOT allowed. ${e.message}');
     }
   }

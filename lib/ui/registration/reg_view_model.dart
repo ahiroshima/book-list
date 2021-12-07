@@ -59,7 +59,7 @@ class RegViewModel extends ChangeNotifier {
               .then((value) => _bookInfo = value)
               .whenComplete(notifyListeners);
           break;
-        } else if(result.type == ResultType.Cancelled) {
+        } else if (result.type == ResultType.Cancelled) {
           break;
         }
       } on PlatformException catch (e) {

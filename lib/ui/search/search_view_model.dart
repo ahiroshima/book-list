@@ -19,8 +19,10 @@ class SearchViewModel extends ChangeNotifier {
 
   final Reader _reader;
 
-  late final SearchBookRepository _repository = _reader(searchBookRepositoryProvider);
-  late final BooksRepository _booksRepository = _reader(booksRepositoryProvider);
+  late final SearchBookRepository _repository =
+      _reader(searchBookRepositoryProvider);
+  late final BooksRepository _booksRepository =
+      _reader(booksRepositoryProvider);
   late final booksViewModel = _reader(booksViewModelProvider);
 
   ScanResult? _result;
@@ -29,39 +31,38 @@ class SearchViewModel extends ChangeNotifier {
   Result<Book>? _bookInfo;
   Result<Book>? get bookInfo => _bookInfo;
 
-
   Future<void> searchBook(String barcode) {
     final isbn = barcode;
     return _repository
-      .getBook(isbn)
-      .then((value) => _bookInfo = value)
-      .whenComplete(notifyListeners);
+        .getBook(isbn)
+        .then((value) => _bookInfo = value)
+        .whenComplete(notifyListeners);
   }
 
   Future<void> addBook() {
     return _booksRepository
-      .addBook(_bookInfo!.dataOrThrow)
-      .whenComplete(booksViewModel.fetchBooks);
+        .addBook(_bookInfo!.dataOrThrow)
+        .whenComplete(booksViewModel.fetchBooks);
   }
 
   Future<void> scanBarcode() async {
     try {
       final result = await BarcodeScanner.scan();
       _result = result;
-      if(result.rawContent.toString().startsWith('978') ||
+      if (result.rawContent.toString().startsWith('978') ||
           result.rawContent.toString().startsWith('979')) {
         _repository
-          .getBook(result.rawContent)
-          .then((value) => _bookInfo = value)
-          .whenComplete(notifyListeners);
+            .getBook(result.rawContent)
+            .then((value) => _bookInfo = value)
+            .whenComplete(notifyListeners);
       }
     } on PlatformException catch (e) {
       _result = ScanResult(
-        type: ResultType.Error,
-        format: BarcodeFormat.unknown,
-        rawContent: e.code == BarcodeScanner.cameraAccessDenied
-          ? 'No camera permission!'
-          : 'Unknown error: $e');
+          type: ResultType.Error,
+          format: BarcodeFormat.unknown,
+          rawContent: e.code == BarcodeScanner.cameraAccessDenied
+              ? 'No camera permission!'
+              : 'Unknown error: $e');
     }
     //notifyListeners();
   }

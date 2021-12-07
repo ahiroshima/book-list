@@ -6,17 +6,17 @@ import 'package:retrofit/retrofit.dart';
 
 part 'search_book_data_source.g.dart';
 
-final searchBookDataSourceProvider = Provider((ref) => SearchBookDataSource(ref.read));
+final searchBookDataSourceProvider =
+    Provider((ref) => SearchBookDataSource(ref.read));
 
 @RestApi()
 abstract class SearchBookDataSource {
-  factory SearchBookDataSource(Reader reader) => _SearchBookDataSource(reader(dioProvider));
+  factory SearchBookDataSource(Reader reader) =>
+      _SearchBookDataSource(reader(dioProvider));
 
   @GET('/books/v1/volumes')
-  Future<Book> getBook(
-    {
+  Future<Book> getBook({
     @Query("q") required String query,
     @Query("key") required String apiKey,
-  }
-  );
+  });
 }

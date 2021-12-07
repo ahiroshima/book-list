@@ -77,8 +77,7 @@ class BooksDataSourceImpl implements BooksDataSource {
     List<Collection> collections = [];
 
     // "全て"は固定とする
-    collections
-        .add(Collection(id: '000', name: '全て', books: ['All']));
+    collections.add(Collection(id: '000', name: '全て', books: ['All']));
 
     if (snapshot.size > 0) {
       userCollections = snapshot.docs
