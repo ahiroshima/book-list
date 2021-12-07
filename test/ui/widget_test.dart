@@ -14,7 +14,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
-import '../data/dummy/dummy_books.dart';
+import '../data/dummy/dummy_book_list.dart';
 
 class MockBooksViewModel extends Mock implements BooksViewModel {}
 
@@ -23,8 +23,8 @@ class MockUserViewModel extends Mock implements UserViewModel {}
 void main() {
   final mockBooksViewModel = MockBooksViewModel();
   when(mockBooksViewModel.fetchBooks).thenAnswer((_) => Future.value());
-  when(() => mockBooksViewModel.books)
-      .thenReturn(Result.success(data: dummyBooks));
+  when(() => mockBooksViewModel.bookList)
+      .thenReturn(Result.success(data: dummyBookList));
 
   final mockUserViewModel = MockUserViewModel();
   when(() => mockUserViewModel.signIn(SignInMethod.anonymous)).thenAnswer((_) => Future.value());

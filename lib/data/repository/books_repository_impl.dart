@@ -1,11 +1,13 @@
 import 'package:app/data/model/books.dart';
+import 'package:app/data/model/collections.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/remote/books_data_source.dart';
 import 'package:app/data/remote/books_data_source_impl.dart';
 import 'package:app/data/repository/books_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final booksRepositoryProvider = Provider((ref) => BooksRepositoryImpl(ref.read));
+final booksRepositoryProvider =
+    Provider((ref) => BooksRepositoryImpl(ref.read));
 
 class BooksRepositoryImpl implements BooksRepository {
   BooksRepositoryImpl(this._reader);
@@ -16,13 +18,16 @@ class BooksRepositoryImpl implements BooksRepository {
 
   @override
   Future<Result<Books>> getBooks() {
-    return Result.guardFuture(
-      () async => _dataSource.getBooks());
+    return Result.guardFuture(() async => _dataSource.getBooks());
   }
 
   @override
   Future<Result<void>> addBook(book) {
-    return Result.guardFuture(
-      () async => _dataSource.addBook(book));
+    return Result.guardFuture(() async => _dataSource.addBook(book));
+  }
+
+  @override
+  Future<Result<Collections>> getCollections() {
+    return Result.guardFuture(() async => _dataSource.getCollections());
   }
 }

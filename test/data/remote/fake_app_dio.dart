@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:app/data/remote/app_dio.dart';
 import 'package:dio/dio.dart';
 
-import '../dummy/dummy_response_news_api.dart';
+import '../dummy/dummy_response_search_book_api.dart';
 
 class FakeAppDio implements AppDio {
   @override
@@ -11,9 +11,9 @@ class FakeAppDio implements AppDio {
 
   @override
   Future<Response<T>> fetch<T>(RequestOptions requestOptions) async {
-    if (requestOptions.path.contains('/v2/everything')) {
+    if (requestOptions.path.contains('/books/v1/volumes')) {
       return FakeResponse(
-              json.decode(dummyResponseNewsApi) as Map<String, dynamic>?)
+              json.decode(dummyResponseSearchBookApi) as Map<String, dynamic>?)
           as Response<T>;
     } else {
       throw UnimplementedError();

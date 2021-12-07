@@ -2,9 +2,14 @@
   "@@locale": "en",
   "ok": "OK",
   "cancel": "CANCEL",
-  "news": "News",
+  "home": "Home",
+  "bookList": "Book List",
+  "searchBook": "Search for a book",
+  "notification": "Notification",
+  "mypage": "My Page",
   "signIn": "Sign-In",
-  "video": "Video",
+  "search": "Search",
+  "mypage": "My Page",
   "googleSignIn": "Google Sign-In",
   "googleSignOut": "Sign-Out",
   "signOut": "Sign-Out",
@@ -18,7 +23,7 @@
   "displayName": "Display Name",
   "email": "Email",
   "uid": "UserId",
-  "bookList": "Book List",
   "page": "Number of pages: ",
-  "isbn": "ISBN: "
+  "isbn": "ISBN: ",
+  "tabAll": "All: "
 }

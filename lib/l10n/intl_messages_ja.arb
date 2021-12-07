@@ -2,9 +2,14 @@
   "@@locale": "ja",
   "ok": "OK",
   "cancel": "キャンセル",
-  "news": "ニュース",
+  "home": "ホーム",
+  "bookList": "本の一覧",
+  "searchBook": "本を探す",
+  "notification": "お知らせ",
+  "mypage": "マイページ",
   "signIn": "ログイン",
-  "video": "ビデオ",
+  "search": "調べる",
+  "mypage": "マイページ",
   "googleSignIn": "Google サインイン",
   "googleSignOut": "サインアウト",
   "signOut": "サインアウト",
@@ -18,7 +23,7 @@
   "displayName": "Display Name",
   "email": "メール",
   "uid": "ユーザID",
-  "bookList": "本の一覧",
   "page": "ページ数：",
-  "isbn": "ISBN: "
+  "isbn": "ISBN: ",
+  "tabAll": "全て"
 }

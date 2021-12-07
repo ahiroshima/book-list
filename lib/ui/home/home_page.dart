@@ -1,4 +1,3 @@
-import 'package:app/gen/assets.gen.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/route/app_route.dart';
@@ -22,33 +21,55 @@ class HomePage extends HookConsumerWidget {
     return AutoTabsScaffold(
       routes: const [
         BooksRoute(),
-        ScanRoute(),
+        SearchRoute(),
+        NotificationRoute(),
+        MyRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
           currentIndex: tabsRouter.activeIndex,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedItemColor: theme.appColors.accent,
+          unselectedItemColor: theme.appColors.disabled,
+          iconSize: 30,
           onTap: tabsRouter.setActiveIndex,
-          iconSize: 20,
           items: [
             BottomNavigationBarItem(
-              icon: Assets.svgs.news.svg(
-                width: 20,
+              icon: Icon(
+                Icons.home,
                 color: tabsRouter.current.name == BooksRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
-              label: l10n.news,
+              label: l10n.home,
             ),
             BottomNavigationBarItem(
-              icon: Assets.svgs.video.svg(
-                width: 20,
-                color: tabsRouter.current.name == ScanRoute.name
+              icon: Icon(
+                Icons.search,
+                color: tabsRouter.current.name == SearchRoute.name
                     ? theme.appColors.accent
                     : theme.appColors.disabled,
               ),
-              label: l10n.news,
+              label: l10n.search,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.notifications,
+                color: tabsRouter.current.name == NotificationRoute.name
+                    ? theme.appColors.accent
+                    : theme.appColors.disabled,
+              ),
+              label: l10n.notification,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                color: tabsRouter.current.name == MyRoute.name
+                    ? theme.appColors.accent
+                    : theme.appColors.disabled,
+              ),
+              label: l10n.mypage,
             ),
           ],
         );
