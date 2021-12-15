@@ -32,7 +32,7 @@ class _$CollectionsTearOff {
     );
   }
 
-  Collections fromJson(Map<String, Object> json) {
+  Collections fromJson(Map<String, Object?> json) {
     return Collections.fromJson(json);
   }
 }
@@ -158,22 +158,20 @@ class _$_Collections implements _Collections {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Collections &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.totalResults, totalResults) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalResults, totalResults)) &&
-            (identical(other.col, col) ||
-                const DeepCollectionEquality().equals(other.col, col)));
+        (other.runtimeType == runtimeType &&
+            other is _Collections &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.totalResults, totalResults) &&
+            const DeepCollectionEquality().equals(other.col, col));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(totalResults) ^
-      const DeepCollectionEquality().hash(col);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(totalResults),
+      const DeepCollectionEquality().hash(col));
 
   @JsonKey(ignore: true)
   @override
@@ -196,11 +194,11 @@ abstract class _Collections implements Collections {
       _$_Collections.fromJson;
 
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
-  int get totalResults => throw _privateConstructorUsedError;
+  int get totalResults;
   @override
-  List<Collection> get col => throw _privateConstructorUsedError;
+  List<Collection> get col;
   @override
   @JsonKey(ignore: true)
   _$CollectionsCopyWith<_Collections> get copyWith =>

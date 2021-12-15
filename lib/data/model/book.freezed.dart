@@ -52,7 +52,7 @@ class _$BookTearOff {
     );
   }
 
-  Book fromJson(Map<String, Object> json) {
+  Book fromJson(Map<String, Object?> json) {
     return Book.fromJson(json);
   }
 }
@@ -341,61 +341,44 @@ class _$_Book implements _Book {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Book &&
-            (identical(other.isbn, isbn) ||
-                const DeepCollectionEquality().equals(other.isbn, isbn)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.subtitle, subtitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.subtitle, subtitle)) &&
-            (identical(other.authors, authors) ||
-                const DeepCollectionEquality()
-                    .equals(other.authors, authors)) &&
-            (identical(other.publishedDate, publishedDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.publishedDate, publishedDate)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.pageCount, pageCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageCount, pageCount)) &&
-            (identical(other.categories, categories) ||
-                const DeepCollectionEquality()
-                    .equals(other.categories, categories)) &&
-            (identical(other.smallThumbnail, smallThumbnail) ||
-                const DeepCollectionEquality()
-                    .equals(other.smallThumbnail, smallThumbnail)) &&
-            (identical(other.thumbnail, thumbnail) ||
-                const DeepCollectionEquality()
-                    .equals(other.thumbnail, thumbnail)) &&
-            (identical(other.urlToDetailPage, urlToDetailPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.urlToDetailPage, urlToDetailPage)) &&
-            (identical(other.publisher, publisher) ||
-                const DeepCollectionEquality()
-                    .equals(other.publisher, publisher)) &&
-            (identical(other.price, price) ||
-                const DeepCollectionEquality().equals(other.price, price)));
+        (other.runtimeType == runtimeType &&
+            other is _Book &&
+            const DeepCollectionEquality().equals(other.isbn, isbn) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.subtitle, subtitle) &&
+            const DeepCollectionEquality().equals(other.authors, authors) &&
+            const DeepCollectionEquality()
+                .equals(other.publishedDate, publishedDate) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.pageCount, pageCount) &&
+            const DeepCollectionEquality()
+                .equals(other.categories, categories) &&
+            const DeepCollectionEquality()
+                .equals(other.smallThumbnail, smallThumbnail) &&
+            const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
+            const DeepCollectionEquality()
+                .equals(other.urlToDetailPage, urlToDetailPage) &&
+            const DeepCollectionEquality().equals(other.publisher, publisher) &&
+            const DeepCollectionEquality().equals(other.price, price));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isbn) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(subtitle) ^
-      const DeepCollectionEquality().hash(authors) ^
-      const DeepCollectionEquality().hash(publishedDate) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(pageCount) ^
-      const DeepCollectionEquality().hash(categories) ^
-      const DeepCollectionEquality().hash(smallThumbnail) ^
-      const DeepCollectionEquality().hash(thumbnail) ^
-      const DeepCollectionEquality().hash(urlToDetailPage) ^
-      const DeepCollectionEquality().hash(publisher) ^
-      const DeepCollectionEquality().hash(price);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isbn),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(subtitle),
+      const DeepCollectionEquality().hash(authors),
+      const DeepCollectionEquality().hash(publishedDate),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(pageCount),
+      const DeepCollectionEquality().hash(categories),
+      const DeepCollectionEquality().hash(smallThumbnail),
+      const DeepCollectionEquality().hash(thumbnail),
+      const DeepCollectionEquality().hash(urlToDetailPage),
+      const DeepCollectionEquality().hash(publisher),
+      const DeepCollectionEquality().hash(price));
 
   @JsonKey(ignore: true)
   @override
@@ -427,31 +410,31 @@ abstract class _Book implements Book {
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
   @override //Map? identifiers,
-  String? get isbn => throw _privateConstructorUsedError;
+  String? get isbn;
   @override
-  String? get title => throw _privateConstructorUsedError;
+  String? get title;
   @override
-  String? get subtitle => throw _privateConstructorUsedError;
+  String? get subtitle;
   @override
-  List<dynamic>? get authors => throw _privateConstructorUsedError;
+  List<dynamic>? get authors;
   @override
-  String? get publishedDate => throw _privateConstructorUsedError;
+  String? get publishedDate;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  int? get pageCount => throw _privateConstructorUsedError;
+  int? get pageCount;
   @override
-  List<dynamic>? get categories => throw _privateConstructorUsedError;
+  List<dynamic>? get categories;
   @override
-  String? get smallThumbnail => throw _privateConstructorUsedError;
+  String? get smallThumbnail;
   @override
-  String? get thumbnail => throw _privateConstructorUsedError;
+  String? get thumbnail;
   @override
-  String? get urlToDetailPage => throw _privateConstructorUsedError;
+  String? get urlToDetailPage;
   @override
-  String? get publisher => throw _privateConstructorUsedError;
+  String? get publisher;
   @override
-  String? get price => throw _privateConstructorUsedError;
+  String? get price;
   @override
   @JsonKey(ignore: true)
   _$BookCopyWith<_Book> get copyWith => throw _privateConstructorUsedError;

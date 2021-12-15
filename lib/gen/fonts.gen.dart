@@ -8,5 +8,6 @@
 class FontFamily {
   FontFamily._();
 
+  /// Font family: Rotunda
   static const String rotunda = 'Rotunda';
 }

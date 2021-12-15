@@ -12,8 +12,11 @@ import 'package:flutter/services.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/article_placeholder.webp
   AssetGenImage get articlePlaceholder =>
       const AssetGenImage('assets/images/article_placeholder.webp');
+
+  /// File path: assets/images/icon_placeholder.jpg
   AssetGenImage get iconPlaceholder =>
       const AssetGenImage('assets/images/icon_placeholder.jpg');
 }
@@ -21,6 +24,7 @@ class $AssetsImagesGen {
 class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
+  /// File path: assets/svgs/firebase.svg
   SvgGenImage get firebase => const SvgGenImage('assets/svgs/firebase.svg');
 }
 
