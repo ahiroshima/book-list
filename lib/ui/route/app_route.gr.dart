@@ -114,6 +114,11 @@ class DetailRouteArgs {
   final _i10.Key? key;
 
   final _i11.Book book;
+
+  @override
+  String toString() {
+    return 'DetailRouteArgs{key: $key, book: $book}';
+  }
 }
 
 /// generated route for [_i4.RegPage]

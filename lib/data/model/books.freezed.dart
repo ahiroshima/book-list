@@ -32,7 +32,7 @@ class _$BooksTearOff {
     );
   }
 
-  Books fromJson(Map<String, Object> json) {
+  Books fromJson(Map<String, Object?> json) {
     return Books.fromJson(json);
   }
 }
@@ -153,22 +153,20 @@ class _$_Books implements _Books {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Books &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.totalResults, totalResults) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalResults, totalResults)) &&
-            (identical(other.books, books) ||
-                const DeepCollectionEquality().equals(other.books, books)));
+        (other.runtimeType == runtimeType &&
+            other is _Books &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.totalResults, totalResults) &&
+            const DeepCollectionEquality().equals(other.books, books));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(totalResults) ^
-      const DeepCollectionEquality().hash(books);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(totalResults),
+      const DeepCollectionEquality().hash(books));
 
   @JsonKey(ignore: true)
   @override
@@ -190,11 +188,11 @@ abstract class _Books implements Books {
   factory _Books.fromJson(Map<String, dynamic> json) = _$_Books.fromJson;
 
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
-  int get totalResults => throw _privateConstructorUsedError;
+  int get totalResults;
   @override
-  List<Book> get books => throw _privateConstructorUsedError;
+  List<Book> get books;
   @override
   @JsonKey(ignore: true)
   _$BooksCopyWith<_Books> get copyWith => throw _privateConstructorUsedError;

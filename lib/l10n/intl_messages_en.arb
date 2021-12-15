@@ -7,6 +7,10 @@
   "searchBook": "Search for a book",
   "notification": "Notification",
   "mypage": "My Page",
+  "collection": "Collections",
+  "inquiry": "Inquiry",
+  "version": "Version",
+  "license": "License",
   "signIn": "Sign-In",
   "search": "Search",
   "mypage": "My Page",
@@ -25,5 +29,9 @@
   "uid": "UserId",
   "page": "Number of pages: ",
   "isbn": "ISBN: ",
+  "publicationDate": "Publication Date: ",
+  "publisher": "Publisher: ",
+  "author": "Author: ",
+  "memo": "Memo: ",
   "tabAll": "All: "
 }

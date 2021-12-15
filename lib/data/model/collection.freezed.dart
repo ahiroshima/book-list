@@ -32,7 +32,7 @@ class _$CollectionTearOff {
     );
   }
 
-  Collection fromJson(Map<String, Object> json) {
+  Collection fromJson(Map<String, Object?> json) {
     return Collection.fromJson(json);
   }
 }
@@ -156,21 +156,19 @@ class _$_Collection implements _Collection {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Collection &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.books, books) ||
-                const DeepCollectionEquality().equals(other.books, books)));
+        (other.runtimeType == runtimeType &&
+            other is _Collection &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.books, books));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(books);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(books));
 
   @JsonKey(ignore: true)
   @override
@@ -193,11 +191,11 @@ abstract class _Collection implements Collection {
       _$_Collection.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  List<dynamic> get books => throw _privateConstructorUsedError;
+  List<dynamic> get books;
   @override
   @JsonKey(ignore: true)
   _$CollectionCopyWith<_Collection> get copyWith =>
