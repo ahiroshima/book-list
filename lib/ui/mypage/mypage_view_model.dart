@@ -1,5 +1,5 @@
-import 'package:app/data/repository/books_repository.dart';
-import 'package:app/data/repository/books_repository_impl.dart';
+//import 'package:app/data/repository/books_repository.dart';
+//import 'package:app/data/repository/books_repository_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,7 +12,7 @@ class MypageViewModel extends ChangeNotifier {
 
   final Reader _reader;
 
-  late final BooksRepository _repository = _reader(booksRepositoryProvider);
+//  late final BooksRepository _repository = _reader(booksRepositoryProvider);
 
   final List<bool> _selected = [];
   List<bool> get selected => _selected;

@@ -25,9 +25,9 @@ class DetailPage extends HookConsumerWidget {
     final _memoFocusNode = FocusNode();
     _memoFocusNode.addListener(() {
       if (_memoFocusNode.hasFocus) {
-        print('フォーカスした : ' + _memoTextController.text);
+        // TODO: フォーカスが当たった時の処理
       } else {
-        print('フォーカスが外れた : ' + _memoTextController.text);
+        // TODO: フォーカスが外れた時の処理
       }
     });
 
@@ -151,7 +151,7 @@ class DetailPage extends HookConsumerWidget {
                         maxLines: null,
                         minLines: 5,
                         onSubmitted: (memo) {
-                          print('on Submitted!' + ':' + memo);
+                          // TODO: 更新処理を書く
                         },
                       ),
                     ],
