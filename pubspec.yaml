@@ -53,6 +53,7 @@ dependencies:
   cupertino_icons: ^1.0.4
   google_fonts: ^2.1.0
   flutter_svg: ^1.0.0
+  keyboard_actions: ^3.4.5
 
   # For BarCode
   barcode_scan2: ^4.2.0

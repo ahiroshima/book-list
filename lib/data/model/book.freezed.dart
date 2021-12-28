@@ -22,7 +22,8 @@ class _$BookTearOff {
   const _$BookTearOff();
 
   _Book call(
-      {String? isbn,
+      {String? id,
+      String? isbn,
       String? title,
       String? subtitle,
       List<dynamic>? authors,
@@ -34,8 +35,10 @@ class _$BookTearOff {
       String? thumbnail,
       String? urlToDetailPage,
       String? publisher,
-      String? price}) {
+      String? price,
+      String? memo}) {
     return _Book(
+      id: id,
       isbn: isbn,
       title: title,
       subtitle: subtitle,
@@ -49,6 +52,7 @@ class _$BookTearOff {
       urlToDetailPage: urlToDetailPage,
       publisher: publisher,
       price: price,
+      memo: memo,
     );
   }
 
@@ -63,6 +67,7 @@ const $Book = _$BookTearOff();
 /// @nodoc
 mixin _$Book {
 //Map? identifiers,
+  String? get id => throw _privateConstructorUsedError;
   String? get isbn => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get subtitle => throw _privateConstructorUsedError;
@@ -76,6 +81,7 @@ mixin _$Book {
   String? get urlToDetailPage => throw _privateConstructorUsedError;
   String? get publisher => throw _privateConstructorUsedError;
   String? get price => throw _privateConstructorUsedError;
+  String? get memo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -87,7 +93,8 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res>;
   $Res call(
-      {String? isbn,
+      {String? id,
+      String? isbn,
       String? title,
       String? subtitle,
       List<dynamic>? authors,
@@ -99,7 +106,8 @@ abstract class $BookCopyWith<$Res> {
       String? thumbnail,
       String? urlToDetailPage,
       String? publisher,
-      String? price});
+      String? price,
+      String? memo});
 }
 
 /// @nodoc
@@ -112,6 +120,7 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? isbn = freezed,
     Object? title = freezed,
     Object? subtitle = freezed,
@@ -125,8 +134,13 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object? urlToDetailPage = freezed,
     Object? publisher = freezed,
     Object? price = freezed,
+    Object? memo = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       isbn: isbn == freezed
           ? _value.isbn
           : isbn // ignore: cast_nullable_to_non_nullable
@@ -179,6 +193,10 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String?,
+      memo: memo == freezed
+          ? _value.memo
+          : memo // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -189,7 +207,8 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$BookCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? isbn,
+      {String? id,
+      String? isbn,
       String? title,
       String? subtitle,
       List<dynamic>? authors,
@@ -201,7 +220,8 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       String? thumbnail,
       String? urlToDetailPage,
       String? publisher,
-      String? price});
+      String? price,
+      String? memo});
 }
 
 /// @nodoc
@@ -215,6 +235,7 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? isbn = freezed,
     Object? title = freezed,
     Object? subtitle = freezed,
@@ -228,8 +249,13 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
     Object? urlToDetailPage = freezed,
     Object? publisher = freezed,
     Object? price = freezed,
+    Object? memo = freezed,
   }) {
     return _then(_Book(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       isbn: isbn == freezed
           ? _value.isbn
           : isbn // ignore: cast_nullable_to_non_nullable
@@ -282,6 +308,10 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String?,
+      memo: memo == freezed
+          ? _value.memo
+          : memo // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -290,7 +320,8 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Book implements _Book {
   _$_Book(
-      {this.isbn,
+      {this.id,
+      this.isbn,
       this.title,
       this.subtitle,
       this.authors,
@@ -302,11 +333,14 @@ class _$_Book implements _Book {
       this.thumbnail,
       this.urlToDetailPage,
       this.publisher,
-      this.price});
+      this.price,
+      this.memo});
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
   @override //Map? identifiers,
+  final String? id;
+  @override
   final String? isbn;
   @override
   final String? title;
@@ -332,10 +366,12 @@ class _$_Book implements _Book {
   final String? publisher;
   @override
   final String? price;
+  @override
+  final String? memo;
 
   @override
   String toString() {
-    return 'Book(isbn: $isbn, title: $title, subtitle: $subtitle, authors: $authors, publishedDate: $publishedDate, description: $description, pageCount: $pageCount, categories: $categories, smallThumbnail: $smallThumbnail, thumbnail: $thumbnail, urlToDetailPage: $urlToDetailPage, publisher: $publisher, price: $price)';
+    return 'Book(id: $id, isbn: $isbn, title: $title, subtitle: $subtitle, authors: $authors, publishedDate: $publishedDate, description: $description, pageCount: $pageCount, categories: $categories, smallThumbnail: $smallThumbnail, thumbnail: $thumbnail, urlToDetailPage: $urlToDetailPage, publisher: $publisher, price: $price, memo: $memo)';
   }
 
   @override
@@ -343,6 +379,7 @@ class _$_Book implements _Book {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Book &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.isbn, isbn) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.subtitle, subtitle) &&
@@ -360,12 +397,14 @@ class _$_Book implements _Book {
             const DeepCollectionEquality()
                 .equals(other.urlToDetailPage, urlToDetailPage) &&
             const DeepCollectionEquality().equals(other.publisher, publisher) &&
-            const DeepCollectionEquality().equals(other.price, price));
+            const DeepCollectionEquality().equals(other.price, price) &&
+            const DeepCollectionEquality().equals(other.memo, memo));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(isbn),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(subtitle),
@@ -378,7 +417,8 @@ class _$_Book implements _Book {
       const DeepCollectionEquality().hash(thumbnail),
       const DeepCollectionEquality().hash(urlToDetailPage),
       const DeepCollectionEquality().hash(publisher),
-      const DeepCollectionEquality().hash(price));
+      const DeepCollectionEquality().hash(price),
+      const DeepCollectionEquality().hash(memo));
 
   @JsonKey(ignore: true)
   @override
@@ -393,7 +433,8 @@ class _$_Book implements _Book {
 
 abstract class _Book implements Book {
   factory _Book(
-      {String? isbn,
+      {String? id,
+      String? isbn,
       String? title,
       String? subtitle,
       List<dynamic>? authors,
@@ -405,11 +446,14 @@ abstract class _Book implements Book {
       String? thumbnail,
       String? urlToDetailPage,
       String? publisher,
-      String? price}) = _$_Book;
+      String? price,
+      String? memo}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
   @override //Map? identifiers,
+  String? get id;
+  @override
   String? get isbn;
   @override
   String? get title;
@@ -435,6 +479,8 @@ abstract class _Book implements Book {
   String? get publisher;
   @override
   String? get price;
+  @override
+  String? get memo;
   @override
   @JsonKey(ignore: true)
   _$BookCopyWith<_Book> get copyWith => throw _privateConstructorUsedError;

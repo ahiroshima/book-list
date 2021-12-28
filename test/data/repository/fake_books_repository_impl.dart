@@ -13,7 +13,12 @@ class FakeBooksRepositoryImpl implements BooksRepositoryImpl {
   }
 
   @override
-  Future<Result<void>> addBook(book) async{
+  Future<Result<void>> addBook(book) async {
+    throw 0;
+  }
+
+  @override
+  Future<Result<void>> updateBook(book) async {
     throw 0;
   }
 

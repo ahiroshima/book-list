@@ -1,3 +1,4 @@
+import 'package:app/data/model/book.dart';
 import 'package:app/data/model/books.dart';
 import 'package:app/data/model/collections.dart';
 import 'package:app/data/model/result.dart';
@@ -22,8 +23,17 @@ class BooksRepositoryImpl implements BooksRepository {
   }
 
   @override
+  Future<Result<Book>> getBook(String id) {
+    return Result.guardFuture(() async => _dataSource.getBook(id));
+  }
+  @override
   Future<Result<void>> addBook(book) {
     return Result.guardFuture(() async => _dataSource.addBook(book));
+  }
+
+  @override
+  Future<Result<void>> updateBook(book) {
+    return Result.guardFuture(() async => _dataSource.updateBook(book));
   }
 
   @override

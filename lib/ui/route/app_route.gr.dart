@@ -84,25 +84,28 @@ class AppRouter extends _i9.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.HomePage]
+/// generated route for
+/// [_i1.HomePage]
 class HomeRoute extends _i9.PageRouteInfo<void> {
   const HomeRoute({List<_i9.PageRouteInfo>? children})
-      : super(name, path: '/', initialChildren: children);
+      : super(HomeRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }
 
-/// generated route for [_i2.SignInPage]
+/// generated route for
+/// [_i2.SignInPage]
 class SignInRoute extends _i9.PageRouteInfo<void> {
-  const SignInRoute() : super(name, path: '/signIn');
+  const SignInRoute() : super(SignInRoute.name, path: '/signIn');
 
   static const String name = 'SignInRoute';
 }
 
-/// generated route for [_i3.DetailPage]
+/// generated route for
+/// [_i3.DetailPage]
 class DetailRoute extends _i9.PageRouteInfo<DetailRouteArgs> {
   DetailRoute({_i10.Key? key, required _i11.Book book})
-      : super(name,
+      : super(DetailRoute.name,
             path: '/detail', args: DetailRouteArgs(key: key, book: book));
 
   static const String name = 'DetailRoute';
@@ -121,37 +124,43 @@ class DetailRouteArgs {
   }
 }
 
-/// generated route for [_i4.RegPage]
+/// generated route for
+/// [_i4.RegPage]
 class RegRoute extends _i9.PageRouteInfo<void> {
-  const RegRoute() : super(name, path: '/reg');
+  const RegRoute() : super(RegRoute.name, path: '/reg');
 
   static const String name = 'RegRoute';
 }
 
-/// generated route for [_i5.BooksPage]
+/// generated route for
+/// [_i5.BooksPage]
 class BooksRoute extends _i9.PageRouteInfo<void> {
-  const BooksRoute() : super(name, path: 'books');
+  const BooksRoute() : super(BooksRoute.name, path: 'books');
 
   static const String name = 'BooksRoute';
 }
 
-/// generated route for [_i6.SearchPage]
+/// generated route for
+/// [_i6.SearchPage]
 class SearchRoute extends _i9.PageRouteInfo<void> {
-  const SearchRoute() : super(name, path: 'book_scan');
+  const SearchRoute() : super(SearchRoute.name, path: 'book_scan');
 
   static const String name = 'SearchRoute';
 }
 
-/// generated route for [_i7.NotificationPage]
+/// generated route for
+/// [_i7.NotificationPage]
 class NotificationRoute extends _i9.PageRouteInfo<void> {
-  const NotificationRoute() : super(name, path: 'notification');
+  const NotificationRoute()
+      : super(NotificationRoute.name, path: 'notification');
 
   static const String name = 'NotificationRoute';
 }
 
-/// generated route for [_i8.MyPage]
+/// generated route for
+/// [_i8.MyPage]
 class MyRoute extends _i9.PageRouteInfo<void> {
-  const MyRoute() : super(name, path: 'mypage');
+  const MyRoute() : super(MyRoute.name, path: 'mypage');
 
   static const String name = 'MyRoute';
 }

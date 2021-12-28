@@ -34,6 +34,48 @@ class BooksDataSourceImpl implements BooksDataSource {
   }
 
   @override
+  Future<void> updateBook(book) async {
+    firebase.DocumentReference _bookRef = _firebaseFirestore
+        .collection('book_list')
+        .doc(_uid)
+        .collection('books')
+        .doc(book.id);
+
+    return await _bookRef.update(book.toJson());
+  }
+
+  @override
+  Future<Book> getBook(String id) async {
+    firebase.DocumentReference _bookRef = _firebaseFirestore
+        .collection('book_list')
+        .doc(_uid)
+        .collection('books')
+        .doc(id);
+
+    return fromSnapshot(await _bookRef.get());
+  }
+
+  Book fromSnapshot(firebase.DocumentSnapshot doc) {
+    return Book(
+      id: doc.id,
+      isbn: doc.get('isbn'),
+      title: doc.get('title'),
+      subtitle: doc.get('subtitle'),
+      authors: doc.get('authors'),
+      publishedDate: doc.get('publishedDate'),
+      description: doc.get('description'),
+      pageCount: doc.get('pageCount') ?? 0,
+      categories: doc.get('categories'),
+      smallThumbnail: doc.get('smallThumbnail'),
+      thumbnail: doc.get('thumbnail'),
+      urlToDetailPage: doc.get('urlToDetailPage'),
+      publisher: doc.get('publisher'),
+      price: doc.get('price'),
+      memo: doc.get('memo') ?? '',
+    );
+  }
+
+  @override
   Future<Books> getBooks() async {
     final snapshot = await _firebaseFirestore
         .collection('book_list')
@@ -46,6 +88,7 @@ class BooksDataSourceImpl implements BooksDataSource {
     if (snapshot.size > 0) {
       books = snapshot.docs
           .map((doc) => Book(
+                id: doc.id,
                 isbn: doc.get('isbn'),
                 title: doc.get('title'),
                 subtitle: doc.get('subtitle'),
@@ -59,6 +102,7 @@ class BooksDataSourceImpl implements BooksDataSource {
                 urlToDetailPage: doc.get('urlToDetailPage'),
                 publisher: doc.get('publisher'),
                 price: doc.get('price'),
+                memo: doc.get('memo') ?? '',
               ))
           .toList();
     }

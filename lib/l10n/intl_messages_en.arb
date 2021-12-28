@@ -2,6 +2,7 @@
   "@@locale": "en",
   "ok": "OK",
   "cancel": "CANCEL",
+  "close": "done",
   "home": "Home",
   "bookList": "Book List",
   "searchBook": "Search for a book",

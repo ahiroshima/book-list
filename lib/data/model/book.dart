@@ -5,22 +5,24 @@ part 'book.g.dart';
 
 @freezed
 abstract class Book with _$Book {
-  factory Book(
-      {
-      //Map? identifiers,
-      String? isbn,
-      String? title,
-      String? subtitle,
-      List<dynamic>? authors,
-      String? publishedDate,
-      String? description,
-      int? pageCount,
-      List<dynamic>? categories,
-      String? smallThumbnail,
-      String? thumbnail,
-      String? urlToDetailPage,
-      String? publisher,
-      String? price}) = _Book;
+  factory Book({
+    //Map? identifiers,
+    String? id,
+    String? isbn,
+    String? title,
+    String? subtitle,
+    List<dynamic>? authors,
+    String? publishedDate,
+    String? description,
+    int? pageCount,
+    List<dynamic>? categories,
+    String? smallThumbnail,
+    String? thumbnail,
+    String? urlToDetailPage,
+    String? publisher,
+    String? price,
+    String? memo,
+  }) = _Book;
 
   factory Book.fromJson(Map<String, dynamic> json) =>
       bookConverter.fromJson(json);

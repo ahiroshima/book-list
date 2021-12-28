@@ -57,41 +57,6 @@ class BookItem extends HookConsumerWidget {
                           ),
                         ),
                       ),
-                      /*Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            const Gap(10),
-                            book.authors != null && book.authors!.isNotEmpty
-                                ? Text(
-                                    book.authors!.first,
-                                    style: theme.textTheme.h20.dense(),
-                                  )
-                                : const Gap(0),
-                            const Gap(5),
-                            book.pageCount != 0
-                                ? Text(
-                                    l10n.page + book.pageCount.toString(),
-                                    style: theme.textTheme.h20.dense(),
-                                  )
-                                : const Gap(0),
-                            const Gap(5),
-                            book.price != null
-                                ? Text(
-                                    book.price.toString(),
-                                    style: theme.textTheme.h20.dense(),
-                                  )
-                                : const Gap(0),
-                            const Gap(5),
-                            book.publishedDate != null
-                                ? Text(
-                                    book.publishedDate.toString(),
-                                    style: theme.textTheme.h20.dense(),
-                                  )
-                                : const Gap(0),
-                          ],
-                        ),
-                      ),*/
                     ],
                   ),
                 ),
@@ -102,13 +67,6 @@ class BookItem extends HookConsumerWidget {
                 style: theme.textTheme.h20.dense(),
                 overflow: TextOverflow.ellipsis,
               ),
-              /*book.subtitle != null
-                  ? Text(
-                      book.subtitle.toString(),
-                      style: theme.textTheme.h20.dense(),
-                      overflow: TextOverflow.ellipsis,
-                    )
-                  : const Gap(0),*/
             ],
           ),
         ),

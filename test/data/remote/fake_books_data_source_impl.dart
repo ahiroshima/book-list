@@ -23,4 +23,9 @@ class FakeBooksDataSourceImpl implements BooksDataSource {
   Future<void> addBook(Book book) async {
     return;
   }
+
+  @override
+  Future<void> updateBook(Book book) async {
+    return;
+  }
 }
