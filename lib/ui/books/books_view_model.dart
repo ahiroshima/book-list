@@ -29,6 +29,10 @@ class BooksViewModel extends ChangeNotifier {
     }).whenComplete(() => notifyListeners);
   }
 
+  Future<Book> getBook(id) {
+    return _repository.getBook(id).then((value) => value.dataOrThrow);
+  }
+
   Future<void> fetchCollections() {
     return _repository
         .getCollections()

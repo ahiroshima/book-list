@@ -23,13 +23,7 @@ class DetailPageViewModel extends ChangeNotifier {
 
   void setbook(Book book) {
     _book = book;
-    // TODO: 常に最新のデータを取得するようにしてみたが、thenを通過しない？？？
-    if (book.id != null) {
-      _repository
-          .getBook(book.id.toString())
-          .then((value) => _book = value.dataOrThrow);
-    }
-    ;
+    _memo = book.memo.toString();
   }
 
   void saveMemo(String memo) {

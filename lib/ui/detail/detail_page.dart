@@ -18,7 +18,6 @@ class DetailPage extends HookConsumerWidget {
   final Book book;
 
   final FocusNode _memoFocusNode = FocusNode();
-  var _memoTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,12 +25,13 @@ class DetailPage extends HookConsumerWidget {
     final router = useRouter();
     final l10n = useL10n();
     final detailPageViewModel = ref.read(detailPageViewModelProvider);
+    final _memoTextController = TextEditingController(text: book.memo);
 
     detailPageViewModel.setbook(book);
 
     // メモの制御
     _memoFocusNode.addListener(() {
-      if (!_memoFocusNode.hasFocus)  {
+      if (!_memoFocusNode.hasFocus) {
         var memo = _memoTextController.text;
         debugPrint('フォーカスが外れた!!! : ' + memo);
         detailPageViewModel.saveMemo(memo);
@@ -126,12 +126,12 @@ class DetailPage extends HookConsumerWidget {
                     ],
                   ),
                 ),
-                onTap: router.pop,
+                onTap: () => router.pop(detailPageViewModel.memo),
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 // memo
-                child: _memoTextField(ref),
+                child: _memoTextField(_memoTextController),
               ),
             ],
           ),
@@ -140,11 +140,8 @@ class DetailPage extends HookConsumerWidget {
     );
   }
 
-  Widget _memoTextField(WidgetRef ref) {
+  Widget _memoTextField(TextEditingController _memoTextController) {
     final l10n = useL10n();
-    final detailPageViewModel = ref.read(detailPageViewModelProvider);
-    _memoTextController =
-        TextEditingController(text: detailPageViewModel.book.memo);
 
     return TextField(
       controller: _memoTextController,
@@ -187,7 +184,7 @@ class DetailPage extends HookConsumerWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(l10n.close),
               ),
-              onTap: () => node.unfocus(),
+              onTap: node.unfocus,
             );
           }
         ]),

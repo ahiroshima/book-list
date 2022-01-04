@@ -18,7 +18,7 @@ class BooksPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useL10n();
     final router = useRouter();
-    final booksViewModel = ref.read(booksViewModelProvider);
+    final booksViewModel = ref.watch(booksViewModelProvider);
     final collections =
         ref.watch(booksViewModelProvider.select((value) => value.collectios));
 
@@ -81,7 +81,7 @@ class BooksPage extends HookConsumerWidget {
 
   List<Widget> createTabPages(Collections collections, WidgetRef ref) {
     final l10n = useL10n();
-    final booksViewModel = ref.read(booksViewModelProvider);
+    final booksViewModel = ref.watch(booksViewModelProvider);
     final bookList =
         ref.watch(booksViewModelProvider.select((value) => value.bookList));
 
