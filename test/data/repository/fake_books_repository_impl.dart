@@ -1,8 +1,10 @@
+import 'package:app/data/model/book.dart';
 import 'package:app/data/model/books.dart';
 import 'package:app/data/model/collections.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/repository/books_repository_impl.dart';
 
+import '../dummy/dummy_book.dart';
 import '../dummy/dummy_books.dart';
 import '../dummy/dummy_collections.dart';
 
@@ -12,6 +14,10 @@ class FakeBooksRepositoryImpl implements BooksRepositoryImpl {
     return Result.success(data: dummyBooks);
   }
 
+  @override
+  Future<Result<Book>> getBook(id) async {
+    return Result.success(data: dummyBook);
+  }
   @override
   Future<Result<void>> addBook(book) async {
     throw 0;
